@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 
 export default function RecipeCard({results}) {
   return (
-    <MDBRow className='row-cols-1 row-cols-md-2 g-4'>
+    <MDBRow className='row-cols-1 row-cols-md-5 g-4'>
         {results.map((result) => (
             <MDBCol key={result.id}>
                 <MDBCard>
