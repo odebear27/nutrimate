@@ -1,8 +1,6 @@
-import React, { useEffect, useState} from "react";
+import React from "react";
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
-import { handleBreakpoints } from "@mui/system";
-import API, {requestOptions} from "../utils/Api";
-import { json } from "react-router-dom";
+
 
 
 const Searchbar = ({search, setSearch, searchRecipes}) => {
