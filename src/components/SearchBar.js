@@ -1,8 +1,12 @@
 import React, { useEffect, useState} from "react";
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
+import { handleBreakpoints } from "@mui/system";
+import API, {requestOptions} from "../utils/Api";
+import { json } from "react-router-dom";
 
 
-const Searchbar = () => {
+const Searchbar = ({search, setSearch, searchRecipes}) => {
+   
   return (
    <Stack alignItems="center" mt='37px' justifyContent="center" p='20px'>
         <Typography fontWeight={700} sx={{ fontSize: { lg: '44px', xs: '30px'}}}
@@ -12,8 +16,9 @@ const Searchbar = () => {
         <Box position="relative" mb="72px">
             <TextField
             height="76px"
-            value=""
-            onChange={(e) => {}}
+            name="search"
+            value={search}
+            onChange={e => setSearch(e.target.value)}
             placeholder="Search recipes"
             type="text"
             sx={{
@@ -26,7 +31,10 @@ const Searchbar = () => {
            <Button variant="contained" sx={{
             height: '55px',
             width: { lg: '175px', xs: '80px'},
-           }}>Search</Button>
+            position: 'absolute',
+           }}
+           onClick={searchRecipes}
+           >Search</Button>
         </Box>
     </Stack>
   );

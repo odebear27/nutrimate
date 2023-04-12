@@ -1,7 +1,5 @@
 Installation Guide:
 
-Install using npm the below:
-
 npm install react-bootstrap bootstrap 
 npm install react-router-dom     
 npm i mdb-react-ui-kit 

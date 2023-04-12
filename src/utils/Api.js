@@ -1,19 +1,18 @@
-// import React from 'react'
 
-// const apiGet = () => {
+import axios from "axios";
 
-// var myHeaders = new Headers();
-// myHeaders.append("apikey", process.env.REACT_APP_API_KEY );
+var myHeaders = new Headers();
+myHeaders.append("apikey", process.env.REACT_APP_API_KEY);
+export var requestOptions = {
+  method: 'GET',
+  redirect: 'follow',
+  headers: myHeaders
+};
 
-// var requestOptions = {
-//   method: 'GET',
-//   redirect: 'follow',
-//   headers: myHeaders
-// };
+const BASE_URL = 'https://api.apilayer.com/spoonacular';
 
-// fetch("https://api.apilayer.com/spoonacular/food/ingredients/search?sortDirection=asc&sort=popularity&query=apple&offset=0&number=10&intolerances=none", requestOptions)
-//   .then(result => console.log(result))
-//   .catch(error => console.log('error', error));
-// }
+const API = axios.create({ baseURL: BASE_URL });
 
-// export default apiGet;
+
+
+export default API;
