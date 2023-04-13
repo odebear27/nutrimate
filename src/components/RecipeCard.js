@@ -23,7 +23,12 @@ export default function RecipeCard({results, setSavedRecipes, savedRecipes}) {
                         position='top'
                     />
                     <MDBCardBody>
-                        <MDBCardTitle>{result.title}</MDBCardTitle>
+                        <MDBCardTitle style={{
+                            height: "50px",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                            whiteSpace: "nowrap",
+                    }}>{result.title}</MDBCardTitle>
                         <MDBCardText>
                             <Link to={`/recipe/${result.id}`}>Details</Link>
                             <button 
