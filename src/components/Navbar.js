@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import {Link} from 'react-router-dom';
 
 function NavbarHeader() {
       return (
@@ -26,8 +27,8 @@ function NavbarHeader() {
                   </Offcanvas.Header>
                   <Offcanvas.Body>
                     <Nav className="justify-content-end flex-grow-1 pe-3">
-                      <Nav.Link href="#action1">Meal Planning</Nav.Link>
-                      <Nav.Link href="#action2">Saved Recipes</Nav.Link>
+                      <Nav.Link href="/">Meal Planning</Nav.Link>
+                      <Nav.Link>{<Link to="/savedrecipes">Saved Recipes</Link>}</Nav.Link>
                       <NavDropdown
                         title="Recipes"
                         id={`offcanvasNavbarDropdown-expand-${expand}`}

@@ -10,9 +10,10 @@ import {
 } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
 
-export default function RecipeCard({results}) {
+export default function RecipeCard({results, setSavedRecipes, savedRecipes}) {
+ 
   return (
-    <MDBRow className='row-cols-1 row-cols-md-2 g-4'>
+    <MDBRow className='row-cols-1 row-cols-md-5 g-4'>
         {results.map((result) => (
             <MDBCol key={result.id}>
                 <MDBCard>
@@ -25,6 +26,12 @@ export default function RecipeCard({results}) {
                         <MDBCardTitle>{result.title}</MDBCardTitle>
                         <MDBCardText>
                             <Link to={`/recipe/${result.id}`}>Details</Link>
+                            <button 
+                            onClick={() => {
+                                setSavedRecipes([...savedRecipes, result]);
+                                console.log(savedRecipes);
+                            }
+                        } >Save Recipe</button>
                         </MDBCardText>
                     </MDBCardBody>
                 </MDBCard>

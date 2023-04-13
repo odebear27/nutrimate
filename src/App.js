@@ -1,17 +1,15 @@
 import './App.css';
-import { BrowserRouter as Router } from 'react-router-dom';
-import Header from './components/Header';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavbarHeader from './components/Navbar';
-import Footer from './components/Footer';
-import Searchbar from './components/SearchBar';
-import RecipeCard from './components/RecipeCard';
 import { useState } from 'react';
+import Homepage from './pages/Homepage';
+import SavedRecipes from './pages/SavedRecipes';
 
 
 function App() {
   const [search, setSearch] = useState('');
   const [results, setResults] = useState([]);
+  const [savedRecipes, setSavedRecipes] = useState([]);
  
   const searchRecipes = () => {
     
@@ -36,11 +34,14 @@ function App() {
 
   return (
     <Router>
-  <NavbarHeader/>
-  < Header />
- <Searchbar search={search} setSearch={setSearch} searchRecipes={searchRecipes} />
- {results && results.length > 0 && <RecipeCard results={results}/> }
-      < Footer />
+      <Routes>
+        <Route path='/' element={ <Homepage 
+      search={search} setSearch={setSearch} searchRecipes={searchRecipes}
+      results={results} setResults={setResults} savedRecipes={savedRecipes} setSavedRecipes={setSavedRecipes}
+      />} />
+     <Route path='/savedrecipes' element={<SavedRecipes savedRecipes={savedRecipes} />} />
+      
+      </Routes>
     </Router>
   );
 }
