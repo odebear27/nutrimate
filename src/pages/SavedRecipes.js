@@ -32,7 +32,12 @@ const SavedRecipes = ({savedRecipes}) => {
                          position='top'
                      />
                      <MDBCardBody>
-                         <MDBCardTitle>{savedRecipe.title}</MDBCardTitle>
+                         <MDBCardTitle style={{
+                          height: "50px",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          whiteSpace: "nowrap",
+                    }}>{savedRecipe.title}</MDBCardTitle>
                          <MDBCardText>
                              <Link to={`/recipe/${savedRecipe.id}`}>Details</Link>
                          </MDBCardText>

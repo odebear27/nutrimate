@@ -34,8 +34,8 @@ function NavbarHeader() {
                         id={`offcanvasNavbarDropdown-expand-${expand}`}
                       >
                         <NavDropdown.Item href="#action3">Browse</NavDropdown.Item>
-                        <NavDropdown.Item href="#action4">
-                          My Feed
+                        <NavDropdown.Item>
+                          {<Link to="/myfeed">My Feed</Link>}
                         </NavDropdown.Item>
                         <NavDropdown.Item href="#action5">
                           Popular Recipes
