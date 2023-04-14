@@ -46,16 +46,15 @@ export default function RecipeCard({results, setSavedRecipes, savedRecipes}) {
                             textOverflow: "ellipsis",
                             whiteSpace: "nowrap",
                     }}>{result.title}</MDBCardTitle>
-                    <MDBCardText>
-                        {result.summary && result.summary.length > 100 ? result.summary.slice(0, 100) + '...' : result.summary}
+                    <p dangerouslySetInnerHTML={{__html: result.summary.slice(0,100) + '...'}} />
+                    <MDBCardText >
+                        <Link to={`/recipe/${result.id}`}>Details</Link>
                         <br/>
                         <br/>
                         {result.readyInMinutes && <span> Ready in {result.readyInMinutes} minutes</span>}
                         </MDBCardText>                        
                         <MDBCardText>
-                            <button><Link to={`/recipe/${result.id}`}>Details</Link></button>
-                            
-                            <button style={{padding: '10px', marginLeft: '50px'}}
+                            <button style={{alignItems: 'center' }}
                             onClick={() => {
                                 setSavedRecipes([...savedRecipes, result]);
                                 console.log(savedRecipes);
