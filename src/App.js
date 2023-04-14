@@ -7,6 +7,7 @@ import SavedRecipes from './pages/SavedRecipes';
 import MyFeedPage from './pages/MyFeedPage';
 import axios from "axios";
 
+
 function App() {
   const [search, setSearch] = useState('');
   const [results, setResults] = useState([]);
@@ -16,16 +17,16 @@ function App() {
    
   const searchRecipes = () => {
     
-      var myHeaders = new Headers();
-      myHeaders.append("apikey", process.env.REACT_APP_API_KEY);
+    var myHeaders = new Headers();
+    myHeaders.append("apikey", process.env.REACT_APP_API_KEY);
+    
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow',
+      headers: myHeaders
+    };
       
-      var requestOptions = {
-        method: 'GET',
-        redirect: 'follow',
-        headers: myHeaders
-      };
-      
-      fetch(`https://api.apilayer.com/spoonacular/recipes/complexSearch?query=${search}`, requestOptions)
+      fetch(`https://api.apilayer.com/spoonacular/recipes/complexSearch?query=${search}&addRecipeInformation=true&number=50`, requestOptions)
         .then(response => response.text())
       //   .then(result => console.log(result))
           .then(result => JSON.parse(result))
@@ -54,7 +55,7 @@ function App() {
       />} />
      <Route path='/savedrecipes' element={<SavedRecipes savedRecipes={savedRecipes} />} />
      <Route path='/myfeed' element={<MyFeedPage myFeedRecipes={myFeedRecipes} setMyFeedRecipes={setMyFeedRecipes} getRecipeByID={getRecipeByID}/>} />
-      </Routes>
+     </Routes>
     </Router>
   );
 }
