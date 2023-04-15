@@ -80,8 +80,10 @@ export default function Recipe() {
                         </MDBCol>
                     </MDBRow>
                 </MDBContainer>
+                
             </section>
-
+            
+            
             <Footer />
         </>
     );

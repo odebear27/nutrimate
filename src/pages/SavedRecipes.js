@@ -13,10 +13,10 @@ import { Link } from 'react-router-dom';
 import NavbarHeader from '../components/Navbar';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { padding } from '@mui/system';
+import UnsaveButton from '../components/UnsaveButton';
 
 
-const SavedRecipes = ({savedRecipes}) => {
+const SavedRecipes = ({savedRecipes, saved, setSaved, setSavedRecipes}) => {
   return (
     <>
         <NavbarHeader />
@@ -38,9 +38,28 @@ const SavedRecipes = ({savedRecipes}) => {
                           textOverflow: "ellipsis",
                           whiteSpace: "nowrap",
                     }}>{savedRecipe.title}</MDBCardTitle>
-                         <MDBCardText>
-                             <Link to={`/recipe/${savedRecipe.id}`}>Details</Link>
-                         </MDBCardText>
+                    <p dangerouslySetInnerHTML={{__html: savedRecipe.summary.slice(0,100) + '...'}} />
+                    <MDBCardText >
+                        <Link to={`/recipe/${savedRecipe.id}`}>Details</Link>
+                         <br/>
+                        <br/>
+                        {savedRecipe.readyInMinutes && <span> Ready in {savedRecipe.readyInMinutes} minutes</span>}
+                        </MDBCardText>                        
+                        <MDBCardText>
+                        <UnsaveButton 
+                    saved={saved}
+                    setSaved={setSaved}
+                handleUnsaveRecipe={() => {
+                    
+                        setSavedRecipes(savedRecipes.filter((savedRecipeState) => savedRecipeState.id !== savedRecipe.id));
+                        setSaved(false);
+                        console.log(savedRecipes);
+                    
+                   
+                }
+            }
+                     />
+                        </MDBCardText>
                      </MDBCardBody>
                  </MDBCard>
              </MDBCol>

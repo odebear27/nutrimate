@@ -23,7 +23,7 @@ function Header() {
             <div style={{color: 'black'}}>
             <h3>Browse Recipes</h3>
             <p>Thousands of recipes at your Fingertips </p>
-                <Link  to="/recipes"> Browse here</Link>
+                <Link  to="/"> Browse here</Link>
             </div>
           </Carousel.Caption>
         </Carousel.Item>

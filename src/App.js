@@ -8,25 +8,28 @@ import MyFeedPage from './pages/MyFeedPage';
 import Recipe from './pages/Recipe';
 import axios from "axios";
 
+
 function App() {
   const [search, setSearch] = useState('');
   const [results, setResults] = useState([]);
   const [savedRecipes, setSavedRecipes] = useState([]);
   const [myFeedRecipes, setMyFeedRecipes] = useState([]);
+  const [saved, setSaved] = useState(false);
+
  
    
   const searchRecipes = () => {
     
-      var myHeaders = new Headers();
-      myHeaders.append("apikey", process.env.REACT_APP_API_KEY);
+    var myHeaders = new Headers();
+    myHeaders.append("apikey", process.env.REACT_APP_API_KEY);
+    
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow',
+      headers: myHeaders
+    };
       
-      var requestOptions = {
-        method: 'GET',
-        redirect: 'follow',
-        headers: myHeaders
-      };
-      
-      fetch(`https://api.apilayer.com/spoonacular/recipes/complexSearch?query=${search}`, requestOptions)
+      fetch(`https://api.apilayer.com/spoonacular/recipes/complexSearch?query=${search}&addRecipeInformation=true&number=50`, requestOptions)
         .then(response => response.text())
       //   .then(result => console.log(result))
           .then(result => JSON.parse(result))
@@ -51,12 +54,12 @@ function App() {
       <Routes>
         <Route path='/' element={ <Homepage 
       search={search} setSearch={setSearch} searchRecipes={searchRecipes}
-      results={results} setResults={setResults} savedRecipes={savedRecipes} setSavedRecipes={setSavedRecipes}
+      results={results} setResults={setResults} savedRecipes={savedRecipes} setSavedRecipes={setSavedRecipes} saved={saved} setSaved={setSaved} 
       />} />
         <Route path='/recipe/:key' element={<Recipe />} />
-     <Route path='/savedrecipes' element={<SavedRecipes savedRecipes={savedRecipes} />} />
-     <Route path='/myfeed' element={<MyFeedPage myFeedRecipes={myFeedRecipes} setMyFeedRecipes={setMyFeedRecipes} getRecipeByID={getRecipeByID}/>} />
-      </Routes>
+     <Route path='/savedrecipes' element={<SavedRecipes savedRecipes={savedRecipes} saved={saved} setSaved={setSaved} setSavedRecipes={setSavedRecipes}/>} />
+     <Route path='/myfeed' element={<MyFeedPage myFeedRecipes={myFeedRecipes} setMyFeedRecipes={setMyFeedRecipes} getRecipeByID={getRecipeByID} setSavedRecipes={setSavedRecipes} savedRecipes={savedRecipes} saved={saved} setSaved={setSaved} />} />
+     </Routes>
     </Router>
   );
 }

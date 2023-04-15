@@ -33,7 +33,7 @@ export default function InstructionCard({details}) {
                                                             <li>{ingredient.name.length > 0  ? ingredient.name : 'None Required'}</li>
                                                         </MDBCardText>
                                                     )}
-
+                                                    
                                                 </MDBCardBody>
                                             </MDBCard>
                                         </MDBCol>
