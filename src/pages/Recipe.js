@@ -38,16 +38,16 @@ export default function Recipe() {
             <section className=''>
                 <MDBContainer className='text-center text-md-start mt-5'>
                     <MDBRow className='mt-3'>
-                        <MDBCol md='3' lg='4' xl='11' className='mx-auto mb-4'>
+                        <MDBCol md='3' lg='4' xl='10' className='mx-auto mb-4'>
                             <h1>{details.title}</h1>
                         </MDBCol>
                         
                         <hr/>
-                        <MDBCol md='3' lg='4' xl='6' className='mx-auto mb-4'>
+                        <MDBCol md='3' lg='4' xl='5' className='mx-auto mb-4'>
                             <img src={details.image}/>
                         </MDBCol>
 
-                        <MDBCol md='3' lg='4' xl='4' className='mx-auto mb-4'>
+                        <MDBCol md='3' lg='4' xl='3' className='mx-auto mb-4'>
                             <h6 className='text-uppercase fw-bold mb-4'>Infobox</h6>
                             <p>
                                 <MDBIcon color='primary' fas icon='stopwatch' className='me-2' />
@@ -72,12 +72,12 @@ export default function Recipe() {
                         </MDBCol>
                         <hr/>
                        
-                        <MDBCol md='3' lg='4' xl='11' className='mx-auto mb-4'>
+                        <MDBCol md='3' lg='4' xl='10' className='mx-auto mb-4'>
                             <p dangerouslySetInnerHTML={{__html:details.summary}} />
+                            <hr/>
+                            <InstructionCard details={details}/>
+
                         </MDBCol>
-                        <hr/>
-                        <h3 className="text-center">Instruction</h3>
-                        <InstructionCard details={details}/>
                     </MDBRow>
                 </MDBContainer>
             </section>
