@@ -14,10 +14,11 @@ export default function InstructionCard({details}) {
 
 
             return(
-                
-                <div>          
-                    {/* {details.analyzedInstructions?.map((steps) => {  */}
-                        <MDBCard className="w-100 p-3">
+                <div>
+                      
+   
+                       
+                         <MDBCard className="w-100 p-3">
                             <MDBCardBody>
                                 <MDBCardTitle> Step 1</MDBCardTitle>
                                     <MDBRow className='mt-3'>
@@ -25,9 +26,19 @@ export default function InstructionCard({details}) {
                                             <MDBCard>
                                                 <MDBCardBody>
                                                     <MDBCardTitle>Ingredient</MDBCardTitle>
-                                                    <MDBCardText>
-                                                        List of Ingredients
-                                                    </MDBCardText>
+                                                    
+                                                        {instructions && instructions.map((item) => {
+                                                        {item.steps.map((step) => {
+            
+                                                               return ( <MDBCardText>
+                                                    
+                                                                {step.number}
+                                                                </MDBCardText>)
+                    
+                                                        })
+                                                        }
+                                                        })}
+                                                   
                                                     
                                                 </MDBCardBody>
                                             </MDBCard>
@@ -46,8 +57,10 @@ export default function InstructionCard({details}) {
                                     </MDBRow>
                             </MDBCardBody>
                         </MDBCard>
-                    {/* })} */}
+                  
+               
+                </div>
 
-                </div>               
+                            
             );        
 }

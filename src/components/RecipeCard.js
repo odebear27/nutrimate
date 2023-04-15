@@ -11,19 +11,25 @@ import {
 import { Typography, Pagination, Stack } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import SaveButton from './SaveButton';
+import UnsaveButton from './UnsaveButton';
 
-export default function RecipeCard({results, setSavedRecipes, savedRecipes}) {
+export default function RecipeCard({results, setSavedRecipes, savedRecipes, saved, setSaved}) {
 
     const [currentPage, setCurrentPage] = useState(1);
+    
     const recipesPerPage = 10;
     const indexOfLastRecipe = currentPage * recipesPerPage;
     const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
     const currentRecipes = results.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
+   
+
     const paginate = (e, value) => {
         setCurrentPage(value);
         window.scrollTo({top: 1800, behavior: 'smooth'});
     }
+
  
   return (
     <>
@@ -54,12 +60,38 @@ export default function RecipeCard({results, setSavedRecipes, savedRecipes}) {
                         {result.readyInMinutes && <span> Ready in {result.readyInMinutes} minutes</span>}
                         </MDBCardText>                        
                         <MDBCardText>
-                            <button style={{alignItems: 'center' }}
-                            onClick={() => {
-                                setSavedRecipes([...savedRecipes, result]);
-                                console.log(savedRecipes);
+                            {/* if result.id is === savedRecipe.id then show SaveButton, else show UnsaveButton */}
+                            {!savedRecipes.some((savedRecipe) => savedRecipe.id === result.id) ? (
+                                
+                        <SaveButton 
+                    saved={saved}
+                    setSaved={setSaved}
+                    handleSaveRecipe={() => {
+                       
+                        setSavedRecipes([...savedRecipes, result]);
+                        setSaved(true);
+                        console.log(savedRecipes);
+                      
+                    }
+                }
+                        />
+            
+                            ) : (
+                                <UnsaveButton 
+                                saved={saved}
+                                setSaved={setSaved}
+
+                            handleUnsaveRecipe={() => {
+                                
+                                    setSavedRecipes(savedRecipes.filter((savedRecipeState) => savedRecipeState.id !== result.id));
+                                    setSaved(false);
+                                    console.log(savedRecipes);
+                                
+                               
                             }
-                        } >Save Recipe</button>
+                        }
+                                 />
+                            )}
                         </MDBCardText>
                     </MDBCardBody>
                 </MDBCard>

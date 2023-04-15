@@ -77,11 +77,15 @@ export default function Recipe() {
                         </MDBCol>
                         <hr/>
                         <h3 className="text-center">Instruction</h3>
+                        
                         <InstructionCard details={details}/>
+    
                     </MDBRow>
                 </MDBContainer>
+                
             </section>
-
+            
+            
             <Footer />
         </>
     );

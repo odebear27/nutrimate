@@ -14,6 +14,8 @@ function App() {
   const [results, setResults] = useState([]);
   const [savedRecipes, setSavedRecipes] = useState([]);
   const [myFeedRecipes, setMyFeedRecipes] = useState([]);
+  const [saved, setSaved] = useState(false);
+
  
    
   const searchRecipes = () => {
@@ -52,11 +54,11 @@ function App() {
       <Routes>
         <Route path='/' element={ <Homepage 
       search={search} setSearch={setSearch} searchRecipes={searchRecipes}
-      results={results} setResults={setResults} savedRecipes={savedRecipes} setSavedRecipes={setSavedRecipes}
+      results={results} setResults={setResults} savedRecipes={savedRecipes} setSavedRecipes={setSavedRecipes} saved={saved} setSaved={setSaved} 
       />} />
         <Route path='/recipe/:key' element={<Recipe />} />
-     <Route path='/savedrecipes' element={<SavedRecipes savedRecipes={savedRecipes} />} />
-     <Route path='/myfeed' element={<MyFeedPage myFeedRecipes={myFeedRecipes} setMyFeedRecipes={setMyFeedRecipes} getRecipeByID={getRecipeByID}/>} />
+     <Route path='/savedrecipes' element={<SavedRecipes savedRecipes={savedRecipes} saved={saved} setSaved={setSaved} setSavedRecipes={setSavedRecipes}/>} />
+     <Route path='/myfeed' element={<MyFeedPage myFeedRecipes={myFeedRecipes} setMyFeedRecipes={setMyFeedRecipes} getRecipeByID={getRecipeByID} setSavedRecipes={setSavedRecipes} savedRecipes={savedRecipes} saved={saved} setSaved={setSaved} />} />
      </Routes>
     </Router>
   );
