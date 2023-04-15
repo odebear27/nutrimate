@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import Homepage from './pages/Homepage';
 import SavedRecipes from './pages/SavedRecipes';
 import MyFeedPage from './pages/MyFeedPage';
+import Recipe from './pages/Recipe';
 import axios from "axios";
 
 
@@ -53,6 +54,7 @@ function App() {
       search={search} setSearch={setSearch} searchRecipes={searchRecipes}
       results={results} setResults={setResults} savedRecipes={savedRecipes} setSavedRecipes={setSavedRecipes}
       />} />
+        <Route path='/recipe/:key' element={<Recipe />} />
      <Route path='/savedrecipes' element={<SavedRecipes savedRecipes={savedRecipes} />} />
      <Route path='/myfeed' element={<MyFeedPage myFeedRecipes={myFeedRecipes} setMyFeedRecipes={setMyFeedRecipes} getRecipeByID={getRecipeByID}/>} />
      </Routes>
