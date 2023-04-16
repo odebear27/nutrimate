@@ -24,20 +24,20 @@ export default function InstructionCard({details}) {
                                 <MDBCardBody>
                                     <MDBCardTitle key={i}> Step <span className='text-warning'>{step.number}</span></MDBCardTitle>
                                     <MDBRow className='mt-3'>
-                                        <MDBCol sm='4' md='3' lg='4' xl='4'>
+                                        <MDBCol sm='4' md='4' lg='4' xl='4'>
                                             <MDBCard>
                                                 <MDBCardBody>
                                                     <MDBCardTitle>Ingredient</MDBCardTitle>
                                                     {step.ingredients.map((ingredient) =>
                                                         <MDBCardText>
-                                                            <li>{ingredient.name.length > 0  ? ingredient.name : 'None Required'}</li>
+                                                            <li>{(ingredient.name).length === 0 ? 'None' : ingredient.name}</li>
                                                         </MDBCardText>
                                                     )}
                                                     
                                                 </MDBCardBody>
                                             </MDBCard>
                                         </MDBCol>
-                                        <MDBCol sm='8' md='3' lg='4' xl='8'>
+                                        <MDBCol sm='8' md='8' lg='8' xl='8'>
                                             <MDBCard>
                                                 <MDBCardBody>
                                                     <MDBCardTitle>Method</MDBCardTitle>

@@ -10,6 +10,7 @@ npm i mdb-react-ui-kit
 npm i @fortawesome/fontawesome-free  
 npm install --save mdbreact
 npm install @mui/material @emotion/react @emotion/styled
+npm install @mui/icons-material
 
 
 ## Available Scripts
