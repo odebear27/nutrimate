@@ -8,7 +8,7 @@ import {
   MDBRow,
   MDBCol,
 } from "mdb-react-ui-kit";
-import { Typography, Pagination, Stack } from '@mui/material';
+import { Typography, Pagination, Stack } from "@mui/material";
 import Spinner from "react-bootstrap/Spinner";
 import { Link } from "react-router-dom";
 import NavbarHeader from "../components/Navbar";
@@ -18,24 +18,32 @@ import "./MyFeedPage.css";
 import UnsaveButton from "../components/UnsaveButton";
 import SaveButton from "../components/SaveButton";
 
-function MyFeedPage({ myFeedRecipes, setMyFeedRecipes, getRecipeByID, savedRecipes, setSavedRecipes, saved, setSaved }) {
+function MyFeedPage({
+  myFeedRecipes,
+  setMyFeedRecipes,
+  getRecipeByID,
+  savedRecipes,
+  setSavedRecipes,
+  saved,
+  setSaved,
+}) {
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-    
+
   const recipesPerPage = 10;
   const indexOfLastRecipe = currentPage * recipesPerPage;
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
-  const currentRecipes = myFeedRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
-
- 
+  const currentRecipes = myFeedRecipes.slice(
+    indexOfFirstRecipe,
+    indexOfLastRecipe
+  );
 
   const paginate = (e, value) => {
-      setCurrentPage(value);
-      window.scrollTo({top: 1800, behavior: 'smooth'});
-  }
+    setCurrentPage(value);
+    window.scrollTo({ top: 1800, behavior: "smooth" });
+  };
 
-  
-    useEffect(() => {
+  useEffect(() => {
     const generateRandomRecipeIDs = () => {
       const randomIDs = [];
       for (let i = 0; i < 10; i++) {
@@ -45,8 +53,8 @@ function MyFeedPage({ myFeedRecipes, setMyFeedRecipes, getRecipeByID, savedRecip
     };
 
     const fetchRecipes = async () => {
-        setIsLoading(true);
-        const recipeIDs = generateRandomRecipeIDs();
+      setIsLoading(true);
+      const recipeIDs = generateRandomRecipeIDs();
       const fetchedRecipes = [];
 
       for (const recipeID of recipeIDs) {
@@ -73,90 +81,104 @@ function MyFeedPage({ myFeedRecipes, setMyFeedRecipes, getRecipeByID, savedRecip
       <h1 style={{ padding: "50px", textAlign: "center" }}>My Feed</h1>
       {isLoading ? (
         <div className="spinner-container">
-            <Spinner animation="border" variant="secondary" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </Spinner>
-            </div>
+          <Spinner animation="border" variant="secondary" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </div>
       ) : (
         <>
-        <MDBRow className="row-cols-1 row-cols-md-5 g-4">
-        {myFeedRecipes &&
-          myFeedRecipes.map((myFeedRecipe) => (
-            <MDBCol key={myFeedRecipe.id}>
-            <MDBCard>
-                <MDBCardImage
-                    src={myFeedRecipe.image}
-                    alt={myFeedRecipe.title}
-                    position='top'
-                />
-                <MDBCardBody>
-                    <MDBCardTitle style={{
-                        height: "50px",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        whiteSpace: "nowrap",
-                }}>{myFeedRecipe.title}</MDBCardTitle>
-                <p dangerouslySetInnerHTML={{__html: myFeedRecipe.summary.slice(0,100) + '...'}} />
-                <MDBCardText >
-                    <Link to={`/recipe/${myFeedRecipe.id}`}>Details</Link>
-                    <br/>
-                    <br/>
-                    {myFeedRecipe.readyInMinutes && <span> Ready in {myFeedRecipe.readyInMinutes} minutes</span>}
-                    </MDBCardText>                        
-                    <MDBCardText>
-                        {/* if myFeedRecipe.id is === savedRecipe.id then show SaveButton, else show UnsaveButton */}
-                        {!savedRecipes.some((savedRecipe) => savedRecipe.id === myFeedRecipe.id) ? (
-                            
-                    <SaveButton 
-                saved={saved}
-                setSaved={setSaved}
-                handleSaveRecipe={() => {
-                   
-                    setSavedRecipes([...savedRecipes, myFeedRecipe]);
-                    setSaved(true);
-                    console.log(savedRecipes);
-                  
-                }
-            }
+          <MDBRow className="row-cols-1 row-cols-md-5 g-4">
+            {myFeedRecipes &&
+              myFeedRecipes.map((myFeedRecipe) => (
+                <MDBCol key={myFeedRecipe.id}>
+                  <MDBCard style={{ height: "550px" }}>
+                    <MDBCardImage
+                      style={{ height: "250px" }}
+                      src={myFeedRecipe.image}
+                      alt={myFeedRecipe.title}
+                      position="top"
                     />
-        
-                        ) : (
-                            <UnsaveButton 
+                    <MDBCardBody>
+                      <MDBCardTitle
+                        style={{
+                          height: "50px",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        {myFeedRecipe.title}
+                      </MDBCardTitle>
+                      <p
+                        style={{ height: "100px" }}
+                        dangerouslySetInnerHTML={{
+                          __html: myFeedRecipe.summary.slice(0, 100) + "...",
+                        }}
+                      />
+                      <MDBCardText>
+                        <Link to={`/recipe/${myFeedRecipe.id}`}>Details</Link>
+                        <br />
+                        <br />
+                        {myFeedRecipe.readyInMinutes && (
+                          <span>
+                            {" "}
+                            Ready in {myFeedRecipe.readyInMinutes} minutes
+                          </span>
+                        )}
+                      </MDBCardText>
+                      <MDBCardText>
+                        {/* if myFeedRecipe.id is === savedRecipe.id then show SaveButton, else show UnsaveButton */}
+                        {!savedRecipes.some(
+                          (savedRecipe) => savedRecipe.id === myFeedRecipe.id
+                        ) ? (
+                          <SaveButton
                             saved={saved}
                             setSaved={setSaved}
-
-                        handleUnsaveRecipe={() => {
-                            
-                                setSavedRecipes(savedRecipes.filter((savedRecipeState) => savedRecipeState.id !== myFeedRecipe.id));
-                                setSaved(false);
-                                console.log(savedRecipes);
-                            
-                           
-                        }
-                    }
-                             />
+                            handleSaveRecipe={() => {
+                              setSavedRecipes([...savedRecipes, myFeedRecipe]);
+                              setSaved(true);
+                              console.log(savedRecipes);
+                            }}
+                          />
+                        ) : (
+                          <UnsaveButton
+                            saved={saved}
+                            setSaved={setSaved}
+                            handleUnsaveRecipe={() => {
+                              setSavedRecipes(
+                                savedRecipes.filter(
+                                  (savedRecipeState) =>
+                                    savedRecipeState.id !== myFeedRecipe.id
+                                )
+                              );
+                              setSaved(false);
+                              console.log(savedRecipes);
+                            }}
+                          />
                         )}
-                    </MDBCardText>
-                </MDBCardBody>
-            </MDBCard>
-        </MDBCol>
-    ))}
-</MDBRow>
-<Stack mt='50px' alignItems='center'>
-{myFeedRecipes.length > recipesPerPage && (
-    <Pagination 
-    color='standard'
-    shape='rounded'
-    count={Math.ceil(myFeedRecipes.length / recipesPerPage)}
-    page={currentPage}
-    onChange={paginate}
-    size='large'
-    />
-)}
-</Stack>
-</>
-)}
-</div>
-)}
+                      </MDBCardText>
+                    </MDBCardBody>
+                  </MDBCard>
+                </MDBCol>
+              ))}
+          </MDBRow>
+          <Stack mt="50px" alignItems="center">
+            {myFeedRecipes.length > recipesPerPage && (
+              <Pagination
+                color="standard"
+                shape="rounded"
+                count={Math.ceil(myFeedRecipes.length / recipesPerPage)}
+                page={currentPage}
+                onChange={paginate}
+                size="large"
+              />
+            )}
+          </Stack>
+        </>
+      )}
+      <Footer />
+    </div>
+  );
+}
 
 export default MyFeedPage;
