@@ -4,10 +4,12 @@ import NavbarHeader from '../components/Navbar';
 import Footer from '../components/Footer';
 import Banner from '../components/Banner';
 
-const AboutPage = () => {
+const AboutPage = ({search, setSearch, searchRecipes}) => {
   return (
     <div>
-        <NavbarHeader/>
+        <NavbarHeader search={search}
+        setSearch={setSearch}
+        searchRecipes={searchRecipes}/>
         <Banner />
         <Container maxWidth="lg">
         <Box position="relative" mb="72px">

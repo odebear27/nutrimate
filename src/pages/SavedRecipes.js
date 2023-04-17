@@ -14,10 +14,12 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import UnsaveButton from "../components/UnsaveButton";
 
-const SavedRecipes = ({ savedRecipes, saved, setSaved, setSavedRecipes }) => {
+const SavedRecipes = ({ savedRecipes, saved, setSaved, setSavedRecipes, search, setSearch, searchRecipes }) => {
   return (
     <>
-      <NavbarHeader />
+      <NavbarHeader search={search}
+        setSearch={setSearch}
+        searchRecipes={searchRecipes}/>
       <Header />
       <h1 style={{ padding: "50px", textAlign: "center" }}>Saved Recipes</h1>
       <MDBRow className="row-cols-1 row-cols-md-5 g-4">

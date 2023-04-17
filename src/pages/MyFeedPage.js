@@ -26,6 +26,7 @@ function MyFeedPage({
   setSavedRecipes,
   saved,
   setSaved,
+  search, setSearch, searchRecipes
 }) {
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -76,7 +77,9 @@ function MyFeedPage({
 
   return (
     <div>
-      <NavbarHeader />
+      <NavbarHeader search={search}
+        setSearch={setSearch}
+        searchRecipes={searchRecipes}/>
       <Header />
       <h1 style={{ padding: "50px", textAlign: "center" }}>My Feed</h1>
       {isLoading ? (
