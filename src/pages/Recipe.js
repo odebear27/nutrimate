@@ -6,7 +6,7 @@ import { MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 import InstructionCard from '../components/InstructionCard';
 import Rating from '../components/Rating';
 
-export default function Recipe() {
+export default function Recipe({search, setSearch, searchRecipes}) {
 
     const[details, setDetails] = useState({});
     let params = useParams()
@@ -34,7 +34,9 @@ export default function Recipe() {
 
     return(
         <>
-            <NavbarHeader/>
+            <NavbarHeader search={search}
+        setSearch={setSearch}
+        searchRecipes={searchRecipes}/>
 
             <section className=''>
                 <MDBContainer className='text-center text-md-start mt-5'>

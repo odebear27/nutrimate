@@ -6,14 +6,20 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import {Link} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-function NavbarHeader() {
+function NavbarHeader({search, setSearch, searchRecipes}) {
+    const navigate = useNavigate();
+    const handleSearch = () => {
+        searchRecipes(search);
+        navigate('/');
+    }
       return (
         <div className="navbar-header-custom">
           {['sm'].map((expand) => (
             <Navbar key={expand} bg="light" expand={expand} className="mb-3">
               <Container fluid>
-                <Navbar.Brand href="#">NutriMate</Navbar.Brand>
+                <Navbar.Brand>{<Link to="/">NutriMate</Link>}</Navbar.Brand>
                 <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
                 <Navbar.Offcanvas
                   id={`offcanvasNavbar-expand-${expand}`}
@@ -41,6 +47,7 @@ function NavbarHeader() {
                           Popular Recipes
                         </NavDropdown.Item>
                       </NavDropdown>
+                      <Nav.Link>{<Link to="/about">About Us</Link>}</Nav.Link>
                     </Nav>
                     <Form className="d-flex">
                       <Form.Control
@@ -48,8 +55,9 @@ function NavbarHeader() {
                         placeholder="Search"
                         className="me-2"
                         aria-label="Search"
+                        onChange={(e) => setSearch(e.target.value)}
                       />
-                      <Button variant="outline-success">Search</Button>
+                      <Button variant="outline-success" onClick={handleSearch}>Search</Button>
                     </Form>
                   </Offcanvas.Body>
                 </Navbar.Offcanvas>

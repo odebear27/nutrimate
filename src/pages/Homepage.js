@@ -17,7 +17,9 @@ const Homepage = ({
 }) => {
   return (
     <>
-      <NavbarHeader />
+      <NavbarHeader search={search}
+        setSearch={setSearch}
+        searchRecipes={searchRecipes} />
       <Header />
       <Searchbar
         search={search}
