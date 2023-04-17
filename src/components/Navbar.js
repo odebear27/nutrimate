@@ -41,6 +41,7 @@ function NavbarHeader() {
                           Popular Recipes
                         </NavDropdown.Item>
                       </NavDropdown>
+                      <Nav.Link href="/about">About Us</Nav.Link>
                     </Nav>
                     <Form className="d-flex">
                       <Form.Control

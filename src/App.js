@@ -7,6 +7,7 @@ import SavedRecipes from './pages/SavedRecipes';
 import MyFeedPage from './pages/MyFeedPage';
 import Recipe from './pages/Recipe';
 import axios from "axios";
+import AboutPage from './pages/AboutPage';
 
 
 function App() {
@@ -59,6 +60,8 @@ function App() {
         <Route path='/recipe/:key' element={<Recipe />} />
      <Route path='/savedrecipes' element={<SavedRecipes savedRecipes={savedRecipes} saved={saved} setSaved={setSaved} setSavedRecipes={setSavedRecipes}/>} />
      <Route path='/myfeed' element={<MyFeedPage myFeedRecipes={myFeedRecipes} setMyFeedRecipes={setMyFeedRecipes} getRecipeByID={getRecipeByID} setSavedRecipes={setSavedRecipes} savedRecipes={savedRecipes} saved={saved} setSaved={setSaved} />} />
+     <Route path='*' element={<h1>404: Page Not Found</h1>} />
+     <Route path='/about' element={<AboutPage />} />
      </Routes>
     </Router>
   );
