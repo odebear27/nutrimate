@@ -12,6 +12,7 @@ function Header() {
     };
   
     return (
+      <div className="navbar-header-custom">
       <Carousel activeIndex={index} onSelect={handleSelect}>
         <Carousel.Item>
           <img
@@ -56,6 +57,7 @@ function Header() {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+      </div>
     );
   }
 
