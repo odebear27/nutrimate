@@ -9,7 +9,7 @@ import {Link} from 'react-router-dom';
 
 function NavbarHeader() {
       return (
-        <>
+        <div className="navbar-header-custom">
           {['sm'].map((expand) => (
             <Navbar key={expand} bg="light" expand={expand} className="mb-3">
               <Container fluid>
@@ -57,7 +57,7 @@ function NavbarHeader() {
               </Container>
             </Navbar>
           ))}
-        </>
+        </div>
       );
     }
     

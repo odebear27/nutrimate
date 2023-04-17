@@ -4,13 +4,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Additional libraries to install:
 
-npm install react-bootstrap bootstrap 
-npm install react-router-dom     
-npm i mdb-react-ui-kit 
+npm install react-bootstrap bootstrap  
+npm install react-router-dom  
+npm i mdb-react-ui-kit  
 npm i @fortawesome/fontawesome-free  
-npm install --save mdbreact
-npm install @mui/material @emotion/react @emotion/styled
-
+npm install --save mdbreact  
+npm install @mui/material @emotion/react @emotion/styled  
+npm install @mui/icons-material  
+npm install axios
 
 ## Available Scripts
 
