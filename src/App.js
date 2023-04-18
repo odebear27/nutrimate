@@ -8,7 +8,6 @@ import MyFeedPage from './pages/MyFeedPage';
 import Recipe from './pages/Recipe';
 import axios from "axios";
 import AboutPage from './pages/AboutPage';
-import Cuisines from './components/Cuisines';
 
 
 function App() {
@@ -51,43 +50,12 @@ function App() {
     });
   };
 
-  // const getRecipeByCat = () => {
-  //   const GET_RECIPE_BY_ID_URL = `https://api.apilayer.com/spoonacular/recipes/complexSearch?query=${search}&number=10&apikey=${process.env.REACT_APP_API_KEY}`;
-  
-  //   return axios.get(GET_RECIPE_BY_ID_URL, {
-  //       headers: {
-  //         apikey: process.env.REACT_APP_API_KEY,
-  //       },
-  //   });
-  // };
-
-  const getRecipeByCat = () => {
-    var myHeaders = new Headers();
-    myHeaders.append("apikey", process.env.REACT_APP_API_KEY);
-
-    var requestOptions = {
-      method: "GET",
-      redirect: "follow",
-      headers: myHeaders,
-    };
-    console.log(search);
-
-    fetch(
-      `https://api.apilayer.com/spoonacular/recipes/complexSearch?query=${search}`, requestOptions)
-      .then((response) => response.text())
-      .then((result) => JSON.parse(result))
-      .then((result) => result.results)
-      .then((result) => setResults(result))
-      .then(console.log(results))
-      .catch((error) => console.log("error", error));
-  };
-
   return (
     <Router>
       <Routes>
         <Route path='/' element={ <Homepage 
       search={search} setSearch={setSearch} searchRecipes={searchRecipes}
-      results={results} setResults={setResults} savedRecipes={savedRecipes} setSavedRecipes={setSavedRecipes} saved={saved} setSaved={setSaved} getRecipeByCat={getRecipeByCat}
+      results={results} setResults={setResults} savedRecipes={savedRecipes} setSavedRecipes={setSavedRecipes} saved={saved} setSaved={setSaved} 
       />} />
         <Route path='/recipe/:key' element={<Recipe search={search}
         setSearch={setSearch}
@@ -98,7 +66,6 @@ function App() {
      <Route path='/myfeed' element={<MyFeedPage myFeedRecipes={myFeedRecipes} setMyFeedRecipes={setMyFeedRecipes} getRecipeByID={getRecipeByID} setSavedRecipes={setSavedRecipes} savedRecipes={savedRecipes} saved={saved} setSaved={setSaved} search={search}
         setSearch={setSearch}
         searchRecipes={searchRecipes}/>} />
-     <Route path="/cuisines/:type" element={<Cuisines setSearch={setSearch} searchRecipes={getRecipeByCat} results={results}  />}  /> 
      <Route path='*' element={<h1>404: Page Not Found</h1>} />
      <Route path='/about' element={<AboutPage search={search}
         setSearch={setSearch}
