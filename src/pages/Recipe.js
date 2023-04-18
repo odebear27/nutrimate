@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import { MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 import InstructionCard from '../components/InstructionCard';
 import Rating from '../components/Rating';
+import ShareRecipe from '../components/ShareRecipe';
 
 export default function Recipe({search, setSearch, searchRecipes}) {
 
@@ -74,7 +75,8 @@ export default function Recipe({search, setSearch, searchRecipes}) {
                             </p>
                             <hr/>
                             <Rating/>
-                            
+                            <hr/>
+                            <ShareRecipe />
                         </MDBCol>
                         
                        

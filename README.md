@@ -11,7 +11,8 @@ npm i @fortawesome/fontawesome-free
 npm install --save mdbreact  
 npm install @mui/material @emotion/react @emotion/styled  
 npm install @mui/icons-material  
-npm install axios
+npm install axios  
+npm i react-share
 
 ## Available Scripts
 
