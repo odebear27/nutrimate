@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from 'react';
 import Homepage from './pages/Homepage';
@@ -10,14 +10,19 @@ import axios from "axios";
 import AboutPage from './pages/AboutPage';
 
 
+
 function App() {
   const [search, setSearch] = useState('');
   const [results, setResults] = useState([]);
   const [savedRecipes, setSavedRecipes] = useState([]);
   const [myFeedRecipes, setMyFeedRecipes] = useState([]);
   const [saved, setSaved] = useState(false);
- 
-   
+  const [isChanged, setIsChanged] = useState(false);
+  
+  useEffect(() => {
+    searchRecipes();
+  }, [isChanged]);
+
   const searchRecipes = () => {
     
     var myHeaders = new Headers();
@@ -37,6 +42,7 @@ function App() {
         .then(result => setResults(result))
         .then(console.log(results))
         .catch(error => console.log('error', error));
+        setSearch('');
   }
 
   const getRecipeByID = (recipeID) => {
@@ -49,12 +55,44 @@ function App() {
     });
   };
 
+  // const getRecipeByCat = () => {
+  //   const GET_RECIPE_BY_ID_URL = `https://api.apilayer.com/spoonacular/recipes/complexSearch?query=${search}&number=10&apikey=${process.env.REACT_APP_API_KEY}`;
+  
+  //   return axios.get(GET_RECIPE_BY_ID_URL, {
+  //       headers: {
+  //         apikey: process.env.REACT_APP_API_KEY,
+  //       },
+  //   });
+  // };
+
+  // const getRecipeByCat = () => {
+  //   var myHeaders = new Headers();
+  //   myHeaders.append("apikey", process.env.REACT_APP_API_KEY);
+
+  //   var requestOptions = {
+  //     method: "GET",
+  //     redirect: "follow",
+  //     headers: myHeaders,
+  //   };
+  
+
+  //   fetch(
+  //     `https://api.apilayer.com/spoonacular/recipes/complexSearch?query=${search}`, requestOptions)
+  //     .then((response) => response.text())
+  //     .then((typeResult) => JSON.parse(typeResult))
+  //     .then((typeResult) => typeResult.results)
+  //     .then((typeResult) => setResults(typeResult))
+  //     .catch((error) => console.log("error", error));
+     
+  //     console.log(search);
+  // };
+
   return (
     <Router>
       <Routes>
         <Route path='/' element={ <Homepage 
       search={search} setSearch={setSearch} searchRecipes={searchRecipes}
-      results={results} setResults={setResults} savedRecipes={savedRecipes} setSavedRecipes={setSavedRecipes} saved={saved} setSaved={setSaved} 
+      results={results} setResults={setResults} savedRecipes={savedRecipes} setSavedRecipes={setSavedRecipes} saved={saved} setSaved={setSaved} isChanged={isChanged} setIsChanged={setIsChanged}
       />} />
         <Route path='/recipe/:key' element={<Recipe search={search}
         setSearch={setSearch}
@@ -65,6 +103,7 @@ function App() {
      <Route path='/myfeed' element={<MyFeedPage myFeedRecipes={myFeedRecipes} setMyFeedRecipes={setMyFeedRecipes} getRecipeByID={getRecipeByID} setSavedRecipes={setSavedRecipes} savedRecipes={savedRecipes} saved={saved} setSaved={setSaved} search={search}
         setSearch={setSearch}
         searchRecipes={searchRecipes}/>} />
+        <Route path="/cuisines/:type" element={<Cuisines setSearch={setSearch} searchRecipes={searchRecipes} results={results} savedRecipes={savedRecipes} saved={saved} setSaved={setSaved} setSavedRecipes={setSavedRecipes} search={search} isChanged={isChanged} setIsChanged={setIsChanged} />}  />
      <Route path='*' element={<h1>404: Page Not Found</h1>} />
      <Route path='/about' element={<AboutPage search={search}
         setSearch={setSearch}

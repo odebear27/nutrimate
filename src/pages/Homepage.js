@@ -14,13 +14,19 @@ const Homepage = ({
   savedRecipes,
   saved,
   setSaved,
+  isChanged,
+  setIsChanged,
 }) => {
   return (
     <>
       <NavbarHeader search={search}
         setSearch={setSearch}
-        searchRecipes={searchRecipes} />
+        searchRecipes={searchRecipes}
+        isChanged={isChanged}
+        setIsChanged={setIsChanged}
+        />
       <Header />
+      <CarouselCuisine setSearch={setSearch} searchRecipes={searchRecipes} search={search} isChanged={isChanged} setIsChanged={setIsChanged} />
       <Searchbar
         search={search}
         setSearch={setSearch}
@@ -33,6 +39,7 @@ const Homepage = ({
           savedRecipes={savedRecipes}
           saved={saved}
           setSaved={setSaved}
+          search={search}
         />
       )}
       <Footer />

@@ -17,6 +17,7 @@ const Searchbar = ({search, setSearch, searchRecipes}) => {
             name="search"
             value={search}
             onChange={e => setSearch(e.target.value)}
+            onKeyPress={e => e.key === 'Enter' ? searchRecipes(e) : null}
             placeholder="Search recipes"
             type="text"
             sx={{
@@ -33,6 +34,7 @@ const Searchbar = ({search, setSearch, searchRecipes}) => {
            }}
            onClick={searchRecipes}
            >Search</Button>
+
         </Box>
     </Stack>
   );
