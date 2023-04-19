@@ -11,16 +11,19 @@ import AboutPage from './pages/AboutPage';
 import Cuisines from './components/Cuisines';
 
 
+
 function App() {
   const [search, setSearch] = useState('');
   const [results, setResults] = useState([]);
   const [savedRecipes, setSavedRecipes] = useState([]);
   const [myFeedRecipes, setMyFeedRecipes] = useState([]);
   const [saved, setSaved] = useState(false);
+  const [isChanged, setIsChanged] = useState(false);
   
+  useEffect(() => {
+    searchRecipes();
+  }, [isChanged]);
 
- 
-   
   const searchRecipes = () => {
     
     var myHeaders = new Headers();
@@ -40,6 +43,7 @@ function App() {
         .then(result => setResults(result))
         .then(console.log(results))
         .catch(error => console.log('error', error));
+        setSearch('');
   }
 
   const getRecipeByID = (recipeID) => {
@@ -62,34 +66,34 @@ function App() {
   //   });
   // };
 
-  const getRecipeByCat = () => {
-    var myHeaders = new Headers();
-    myHeaders.append("apikey", process.env.REACT_APP_API_KEY);
+  // const getRecipeByCat = () => {
+  //   var myHeaders = new Headers();
+  //   myHeaders.append("apikey", process.env.REACT_APP_API_KEY);
 
-    var requestOptions = {
-      method: "GET",
-      redirect: "follow",
-      headers: myHeaders,
-    };
+  //   var requestOptions = {
+  //     method: "GET",
+  //     redirect: "follow",
+  //     headers: myHeaders,
+  //   };
   
 
-    fetch(
-      `https://api.apilayer.com/spoonacular/recipes/complexSearch?query=${search}`, requestOptions)
-      .then((response) => response.text())
-      .then((typeResult) => JSON.parse(typeResult))
-      .then((typeResult) => typeResult.results)
-      .then((typeResult) => setResults(typeResult))
-      .catch((error) => console.log("error", error));
+  //   fetch(
+  //     `https://api.apilayer.com/spoonacular/recipes/complexSearch?query=${search}`, requestOptions)
+  //     .then((response) => response.text())
+  //     .then((typeResult) => JSON.parse(typeResult))
+  //     .then((typeResult) => typeResult.results)
+  //     .then((typeResult) => setResults(typeResult))
+  //     .catch((error) => console.log("error", error));
      
-      console.log(search);
-  };
+  //     console.log(search);
+  // };
 
   return (
     <Router>
       <Routes>
         <Route path='/' element={ <Homepage 
       search={search} setSearch={setSearch} searchRecipes={searchRecipes}
-      results={results} setResults={setResults} savedRecipes={savedRecipes} setSavedRecipes={setSavedRecipes} saved={saved} setSaved={setSaved} getRecipeByCat={getRecipeByCat}
+      results={results} setResults={setResults} savedRecipes={savedRecipes} setSavedRecipes={setSavedRecipes} saved={saved} setSaved={setSaved} isChanged={isChanged} setIsChanged={setIsChanged}
       />} />
         <Route path='/recipe/:key' element={<Recipe search={search}
         setSearch={setSearch}
@@ -100,7 +104,7 @@ function App() {
      <Route path='/myfeed' element={<MyFeedPage myFeedRecipes={myFeedRecipes} setMyFeedRecipes={setMyFeedRecipes} getRecipeByID={getRecipeByID} setSavedRecipes={setSavedRecipes} savedRecipes={savedRecipes} saved={saved} setSaved={setSaved} search={search}
         setSearch={setSearch}
         searchRecipes={searchRecipes}/>} />
-        <Route path="/cuisines/:type" element={<Cuisines setSearch={setSearch} getRecipeByCat={getRecipeByCat} results={results} savedRecipes={savedRecipes} saved={saved} setSaved={setSaved} setSavedRecipes={setSavedRecipes} search={search} />}  />
+        <Route path="/cuisines/:type" element={<Cuisines setSearch={setSearch} searchRecipes={searchRecipes} results={results} savedRecipes={savedRecipes} saved={saved} setSaved={setSaved} setSavedRecipes={setSavedRecipes} search={search} isChanged={isChanged} setIsChanged={setIsChanged} />}  />
      <Route path='*' element={<h1>404: Page Not Found</h1>} />
      <Route path='/about' element={<AboutPage search={search}
         setSearch={setSearch}

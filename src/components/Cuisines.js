@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import RecipeCard from "./RecipeCard";
 import CarouselCuisine from "./CarouselCuisine";
 import NavbarHeader from "./Navbar";
+import { style } from "@mui/system";
 
 // function Cuisines({ category }) {
 function Cuisines({setSearch, searchRecipes, results,  setSavedRecipes,
@@ -12,18 +13,18 @@ function Cuisines({setSearch, searchRecipes, results,  setSavedRecipes,
   saved,
   setSaved,
 search,
-getRecipeByCat}) {
+isChanged,
+setIsChanged}) {
 
- const { type } = useParams();
+ 
     
   return (
     <>
      <NavbarHeader search={search}
         setSearch={setSearch}
         searchRecipes={searchRecipes} />
- <CarouselCuisine setSearch={setSearch} getRecipeByCat={getRecipeByCat} />
-    <div className={styles.container}>
-      <h2 style={{mt: '100px'}}>{search} Cuisines</h2>
+ <CarouselCuisine setSearch={setSearch} searchRecipes={searchRecipes} search={search} isChanged={isChanged} setIsChanged={setIsChanged}  />
+    <div className={style.recipe} >
      <RecipeCard results={results} setSavedRecipes={setSavedRecipes}
   savedRecipes={savedRecipes}
   saved={saved}

@@ -10,7 +10,8 @@ import { useNavigate } from 'react-router-dom';
 
 function NavbarHeader({search, setSearch, searchRecipes}) {
     const navigate = useNavigate();
-    const handleSearch = () => {
+    const handleSearch = (e) => {
+        e.preventDefault();
         searchRecipes(search);
         navigate('/');
     }
@@ -33,7 +34,7 @@ function NavbarHeader({search, setSearch, searchRecipes}) {
                   </Offcanvas.Header>
                   <Offcanvas.Body>
                     <Nav className="justify-content-end flex-grow-1 pe-3">
-                      <Nav.Link href="/">Meal Planning</Nav.Link>
+                      
                       <Nav.Link>{<Link to="/savedrecipes">Saved Recipes</Link>}</Nav.Link>
                       <NavDropdown
                         title="Recipes"
@@ -42,9 +43,6 @@ function NavbarHeader({search, setSearch, searchRecipes}) {
                         <NavDropdown.Item href="#action3">Browse</NavDropdown.Item>
                         <NavDropdown.Item>
                           {<Link to="/myfeed">My Feed</Link>}
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href="#action5">
-                          Popular Recipes
                         </NavDropdown.Item>
                       </NavDropdown>
                       <Nav.Link>{<Link to="/about">About Us</Link>}</Nav.Link>
@@ -55,7 +53,9 @@ function NavbarHeader({search, setSearch, searchRecipes}) {
                         placeholder="Search"
                         className="me-2"
                         aria-label="Search"
+                        value={search}
                         onChange={(e) => setSearch(e.target.value)}
+                        onKeyPress={(e) => e.key === 'Enter' ? handleSearch(e) : null}
                       />
                       <Button variant="outline-success" onClick={handleSearch}>Search</Button>
                     </Form>

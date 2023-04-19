@@ -3,6 +3,7 @@ import styles from "./Carousel.module.css";
 import "bootstrap";
 import "bootstrap/js/dist/util";
 import "bootstrap/js/dist/dropdown";
+import { Stack, Typography } from "@mui/material";
 
 // import Carousel from "./components/Carousel";
 //import { Carousel } from "react-responsive-carousel";
@@ -28,22 +29,17 @@ import mexican from "../assets/mexican.webp";
 import southern from "../assets/southern.webp";
 import kid from "../assets/kid-friendly.webp";
 
-function CarouselCuisine({ setSearch, getRecipeByCat }) {
+function CarouselCuisine({ setSearch, searchRecipes, search, isChanged, setIsChanged}) {
   const [index, setIndex] = useState(0);
 
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
 
-  const navigate = useNavigate();
-
-  let settings = {
-    dots: true,
-    infinite: true,
-    speed: 50,
-    slidesToShow: 1,
-    slidesToScroll: 5,
-  };
+  // let settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 50,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 5,
+  // };
 
   const carouselPhotos = [
     {
@@ -109,28 +105,34 @@ function CarouselCuisine({ setSearch, getRecipeByCat }) {
   ];
   return (
     <>
-      <h3>Browse by Cuisines </h3>
+     <Stack mt='37px' p='20px'>
+        <Typography fontWeight={700} sx={{ fontSize: { lg: '44px', xs: '30px'}}}
+        mb='50px'>
+            Browse by Cuisines
+        </Typography>
+      </Stack>
       <Carousel
         autoPlay
         centerMode={true}
         axis="horizontal"
         showArrows={false}
         showIndicators={false}
-        showThumbs={false}
       >
         <div className={styles.Container}>
-          {carouselPhotos && carouselPhotos.map((item, index) => (
+          {carouselPhotos && carouselPhotos.map((item) => (
             <NavLink
-              to={`${item.targetURL}`}
-              key={item.targetURL}
+              to={item.targetURL}
               onClick={() => {
+                {isChanged ? setIsChanged(false) : setIsChanged(true)}
                 setSearch(item.name);
-                getRecipeByCat();
+                // searchRecipes();
+                console.log(search);
+                console.log(isChanged)
               }}
             >
               <img
                 src={item.img}
-                padding="3rem"
+                padding="4rem"
                 name={item.name}
                 height="128px"
                 width="128px"

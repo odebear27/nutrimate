@@ -55,10 +55,10 @@ function Header() {
           />
   
           <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
+            <h3>What's Popular?</h3>
+          
+              <Link to='/myfeed'>Browse Your Feed 
+            </Link>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

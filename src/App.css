@@ -21,16 +21,19 @@
   transition: 0.3s all ease-in-out;
 }
 
-.navbar-header-custom a {
+.navbar-header-custom a, .footer-custom a {
   text-decoration: none;
   color: #0000008C;
 }
 
-.navbar-header-custom a:hover {
+.navbar-header-custom a:hover, .footer-custom a:hover {
   color: orange;
 }
 
-.header-banner {
-  height: 300px !important;
-  padding-bottom: 25%;
+.footer-custom .mdb-icon {
+  color: #6c757d;
+}
+
+.footer-custom .mdb-icon:hover {
+  color: orange;
 }

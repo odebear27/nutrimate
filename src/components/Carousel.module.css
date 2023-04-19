@@ -65,5 +65,9 @@
     width: 100%;
     align-items: center;
     margin-left: 80px;
-    margin-top: 80px;
+    margin-right: 80px; 
+}
+
+.recipe {
+    margin-top: 100px;
 }
