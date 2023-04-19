@@ -12,7 +12,7 @@ npm install --save mdbreact
 npm install @mui/material @emotion/react @emotion/styled  
 npm install @mui/icons-material  
 npm install axios
-npm i react-share\
+npm i react-share
 npm install @material-ui/core
 
 ## Available Scripts
