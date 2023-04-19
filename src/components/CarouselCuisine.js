@@ -138,6 +138,9 @@ function CarouselCuisine({ setSearch, searchRecipes, search, isChanged, setIsCha
                 width="128px"
                 alt={item.alt}
               />
+              <div style={{ 'text-align': "center", 'color': "black" }}>
+                <label>{item.name}</label>
+              </div>
               {/* <Carousel.Caption>{item.name} </Carousel.Caption> */}
             </NavLink>
           ))}
