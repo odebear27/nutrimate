@@ -35,8 +35,8 @@ function MyFeedPage({
   const indexOfLastRecipe = currentPage * recipesPerPage;
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
   const currentRecipes = myFeedRecipes.slice(
-    indexOfFirstRecipe,
-    indexOfLastRecipe
+                          indexOfFirstRecipe, 
+                          indexOfLastRecipe
   );
 
   const paginate = (e, value) => {
@@ -92,7 +92,8 @@ function MyFeedPage({
         <>
           <MDBRow className="row-cols-1 row-cols-md-5 g-4">
             {myFeedRecipes &&
-              myFeedRecipes.map((myFeedRecipe) => (
+              myFeedRecipes.length > 0 &&
+              currentRecipes.map((myFeedRecipe) => (
                 <MDBCol key={myFeedRecipe.id}>
                   <MDBCard style={{ height: "550px" }}>
                     <MDBCardImage

@@ -23,7 +23,7 @@ function ShareRecipe() {
       </FacebookShareButton>
 
       <TwitterShareButton url={url} title={message}>
-        <MDBIcon fab icon="twitter" size="lg" className="ms-2" title="Twitter" color='secondary' />
+        <MDBIcon fab icon="twitter" size="lg" className="ms-2" title="Twitter" />
       </TwitterShareButton>
 
       <WhatsappShareButton url={url} title={message}>
