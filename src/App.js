@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from 'react';
 import Homepage from './pages/Homepage';
@@ -17,6 +17,7 @@ function App() {
   const [savedRecipes, setSavedRecipes] = useState([]);
   const [myFeedRecipes, setMyFeedRecipes] = useState([]);
   const [saved, setSaved] = useState(false);
+  
 
  
    
@@ -70,16 +71,17 @@ function App() {
       redirect: "follow",
       headers: myHeaders,
     };
-    console.log(search);
+  
 
     fetch(
       `https://api.apilayer.com/spoonacular/recipes/complexSearch?query=${search}`, requestOptions)
       .then((response) => response.text())
-      .then((result) => JSON.parse(result))
-      .then((result) => result.results)
-      .then((result) => setResults(result))
-      .then(console.log(results))
+      .then((typeResult) => JSON.parse(typeResult))
+      .then((typeResult) => typeResult.results)
+      .then((typeResult) => setResults(typeResult))
       .catch((error) => console.log("error", error));
+     
+      console.log(search);
   };
 
   return (
@@ -98,7 +100,7 @@ function App() {
      <Route path='/myfeed' element={<MyFeedPage myFeedRecipes={myFeedRecipes} setMyFeedRecipes={setMyFeedRecipes} getRecipeByID={getRecipeByID} setSavedRecipes={setSavedRecipes} savedRecipes={savedRecipes} saved={saved} setSaved={setSaved} search={search}
         setSearch={setSearch}
         searchRecipes={searchRecipes}/>} />
-     <Route path="/cuisines/:type" element={<Cuisines setSearch={setSearch} searchRecipes={getRecipeByCat} results={results}  />}  /> 
+        <Route path="/cuisines/:type" element={<Cuisines setSearch={setSearch} getRecipeByCat={getRecipeByCat} results={results} savedRecipes={savedRecipes} saved={saved} setSaved={setSaved} setSavedRecipes={setSavedRecipes} search={search} />}  />
      <Route path='*' element={<h1>404: Page Not Found</h1>} />
      <Route path='/about' element={<AboutPage search={search}
         setSearch={setSearch}

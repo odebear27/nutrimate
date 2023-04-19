@@ -36,6 +36,7 @@ const Homepage = ({
           savedRecipes={savedRecipes}
           saved={saved}
           setSaved={setSaved}
+          search={search}
         />
       )}
       <Footer />

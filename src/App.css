@@ -29,3 +29,8 @@
 .navbar-header-custom a:hover {
   color: orange;
 }
+
+.header-banner {
+  height: 300px !important;
+  padding-bottom: 25%;
+}

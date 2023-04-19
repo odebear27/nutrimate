@@ -20,6 +20,7 @@ export default function RecipeCard({
   savedRecipes,
   saved,
   setSaved,
+  search
 }) {
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -35,8 +36,8 @@ export default function RecipeCard({
 
   return (
     <>
-      <Typography variant="h4" mb="46px">
-        Showing Results
+     <Typography variant="h4" mb="46px">
+        Showing Results 
       </Typography>
       <MDBRow className="row-cols-1 row-cols-md-5 g-4">
         {currentRecipes.map((result) => (
@@ -59,12 +60,12 @@ export default function RecipeCard({
                 >
                   {result.title}
                 </MDBCardTitle>
-                <p
+                {result.summary && <p
                   style={{ height: "100px" }}
                   dangerouslySetInnerHTML={{
                     __html: result.summary.slice(0, 100) + "...",
                   }}
-                />
+                />}
                 <MDBCardText>
                   <Link to={`/recipe/${result.id}`}>Details</Link>
                   <br />

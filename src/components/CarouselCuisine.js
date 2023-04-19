@@ -12,7 +12,7 @@ import {
   Link,
   Routes,
   Route,
-  Navigate,
+  useNavigate,
   NavLink,
   Outlet,
 } from "react-router-dom";
@@ -34,6 +34,8 @@ function CarouselCuisine({ setSearch, getRecipeByCat }) {
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
+
+  const navigate = useNavigate();
 
   let settings = {
     dots: true,
@@ -115,11 +117,9 @@ function CarouselCuisine({ setSearch, getRecipeByCat }) {
         showArrows={false}
         showIndicators={false}
         showThumbs={false}
-        onClickItem={getRecipeByCat}
-        onChange={handleSelect}
       >
         <div className={styles.Container}>
-          {carouselPhotos.map((item, index) => (
+          {carouselPhotos && carouselPhotos.map((item, index) => (
             <NavLink
               to={`${item.targetURL}`}
               key={item.targetURL}
