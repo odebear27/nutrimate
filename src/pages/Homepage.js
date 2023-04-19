@@ -4,7 +4,6 @@ import Searchbar from "../components/SearchBar";
 import RecipeCard from "../components/RecipeCard";
 import NavbarHeader from "../components/Navbar";
 import Footer from "../components/Footer";
-import CarouselCuisine from '../components/CarouselCuisine';
 
 const Homepage = ({
   search,
@@ -16,7 +15,7 @@ const Homepage = ({
   saved,
   setSaved,
   isChanged,
-    setIsChanged,
+  setIsChanged,
 }) => {
   return (
     <>

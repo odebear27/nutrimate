@@ -8,7 +8,6 @@ import MyFeedPage from './pages/MyFeedPage';
 import Recipe from './pages/Recipe';
 import axios from "axios";
 import AboutPage from './pages/AboutPage';
-import Cuisines from './components/Cuisines';
 
 
 
