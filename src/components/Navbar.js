@@ -18,7 +18,7 @@ function NavbarHeader({search, setSearch, searchRecipes}) {
       return (
         <div className="navbar-header-custom">
           {['sm'].map((expand) => (
-            <Navbar key={expand} bg="light" expand={expand} className="mb-3">
+            <Navbar key={expand} bg="light" expand={expand} className="mb-1">
               <Container fluid>
                 <Navbar.Brand>{<Link to="/">NutriMate</Link>}</Navbar.Brand>
                 <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />

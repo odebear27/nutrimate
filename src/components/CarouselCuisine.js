@@ -106,45 +106,52 @@ function CarouselCuisine({ setSearch, searchRecipes, search, isChanged, setIsCha
   return (
     <>
      <Stack mt='37px' p='20px'>
-        <Typography fontWeight={700} sx={{ fontSize: { lg: '44px', xs: '30px'}}}
-        mb='50px'>
+        <Typography 
+          align='center' 
+          gutterBottom={false} 
+          fontWeight={700} 
+          sx={{ fontSize: { lg: '44px', xs: '30px'}}}
+        >
+          
             Browse by Cuisines
+          
         </Typography>
       </Stack>
       <Carousel
+        controls={false}
         autoPlay
-        centerMode={true}
         axis="horizontal"
-        showArrows={false}
-        showIndicators={false}
+
       >
-        <div className={styles.Container}>
-          {carouselPhotos && carouselPhotos.map((item) => (
-            <NavLink
-              to={item.targetURL}
-              onClick={() => {
-                {isChanged ? setIsChanged(false) : setIsChanged(true)}
-                setSearch(item.name);
-                // searchRecipes();
-                console.log(search);
-                console.log(isChanged)
-              }}
-            >
-              <img
-                src={item.img}
-                padding="4rem"
-                name={item.name}
-                height="128px"
-                width="128px"
-                alt={item.alt}
-              />
-              <div style={{ 'text-align': "center", 'color': "black" }}>
-                <label>{item.name}</label>
-              </div>
-              {/* <Carousel.Caption>{item.name} </Carousel.Caption> */}
-            </NavLink>
-          ))}
-        </div>
+        <Carousel.Item>
+          <div className={styles.Container}>
+            {carouselPhotos && carouselPhotos.map((item) => (
+              <NavLink
+                to={item.targetURL}
+                onClick={() => {
+                  {isChanged ? setIsChanged(false) : setIsChanged(true)}
+                  setSearch(item.name);
+                  // searchRecipes();
+                  console.log(search);
+                  console.log(isChanged)
+                }}
+              >
+                <img
+                  src={item.img}
+                  padding="4rem"
+                  name={item.name}
+                  height="128px"
+                  width="128px"
+                  alt={item.alt}
+                />
+                <div style={{ 'textAlign': "center", 'color': "black" }}>
+                  <label>{item.name}</label>
+                </div>
+                {/* <Carousel.Caption>{item.name} </Carousel.Caption> */}
+              </NavLink>
+            ))}
+          </div>
+        </Carousel.Item>
       </Carousel>
     </>
   );
