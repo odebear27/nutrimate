@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import SaveButton from "./SaveButton";
 import UnsaveButton from "./UnsaveButton";
+import "../App.css";
 
 export default function RecipeCard({
   results,
@@ -35,7 +36,7 @@ export default function RecipeCard({
   };
 
   return (
-    <>
+    <div className="card-container">
      <Typography variant="h4" mb="46px">
         Showing Results 
       </Typography>
@@ -122,6 +123,6 @@ export default function RecipeCard({
           />
         )}
       </Stack>
-    </>
+    </div>
   );
 }

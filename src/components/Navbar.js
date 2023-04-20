@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 function NavbarHeader({search, setSearch, searchRecipes}) {
@@ -40,7 +40,9 @@ function NavbarHeader({search, setSearch, searchRecipes}) {
                         title="Recipes"
                         id={`offcanvasNavbarDropdown-expand-${expand}`}
                       >
-                        <NavDropdown.Item href="#action3">Browse</NavDropdown.Item>
+                        <NavDropdown.Item>
+                          {<Link to="/">Browse</Link>}
+                        </NavDropdown.Item>
                         <NavDropdown.Item>
                           {<Link to="/myfeed">My Feed</Link>}
                         </NavDropdown.Item>
