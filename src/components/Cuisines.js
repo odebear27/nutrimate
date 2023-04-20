@@ -6,6 +6,7 @@ import RecipeCard from "./RecipeCard";
 import CarouselCuisine from "./CarouselCuisine";
 import NavbarHeader from "./Navbar";
 import { style } from "@mui/system";
+import Footer from "./Footer";
 
 // function Cuisines({ category }) {
 function Cuisines({setSearch, searchRecipes, results,  setSavedRecipes,
@@ -20,18 +21,22 @@ setIsChanged}) {
     
   return (
     <>
-     <NavbarHeader search={search}
+      <NavbarHeader search={search}
         setSearch={setSearch}
-        searchRecipes={searchRecipes} />
- <CarouselCuisine setSearch={setSearch} searchRecipes={searchRecipes} search={search} isChanged={isChanged} setIsChanged={setIsChanged}  />
-    <div className={style.recipe} >
-     <RecipeCard results={results} setSavedRecipes={setSavedRecipes}
-  savedRecipes={savedRecipes}
-  saved={saved}
-  setSaved={setSaved} />
-      <Outlet />
-
-    </div>
+        searchRecipes={searchRecipes} 
+      />
+      <CarouselCuisine setSearch={setSearch} searchRecipes={searchRecipes} search={search} isChanged={isChanged} setIsChanged={setIsChanged}  />
+      <div className={style.recipe} >
+        <RecipeCard 
+          results={results} 
+          setSavedRecipes={setSavedRecipes}
+          savedRecipes={savedRecipes}
+          saved={saved}
+          setSaved={setSaved} 
+        />
+        <Outlet />
+      </div>
+      <Footer/>
     </>
   );
 }

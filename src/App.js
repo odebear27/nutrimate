@@ -24,6 +24,10 @@ function App() {
     searchRecipes();
   }, [isChanged]);
 
+  useEffect(() => {
+    document.title = 'NutriMate - Your one stop healthy food advisor';
+  }, []);
+
   const searchRecipes = () => {
     
     var myHeaders = new Headers();
