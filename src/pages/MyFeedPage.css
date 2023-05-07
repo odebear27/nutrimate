@@ -4,3 +4,7 @@
     align-items: center;
     /* min-height: 100vh; */
 }
+
+.card-container {
+    margin: 0 100px;
+}

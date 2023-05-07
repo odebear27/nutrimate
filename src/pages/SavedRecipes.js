@@ -13,13 +13,14 @@ import NavbarHeader from "../components/Navbar";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import UnsaveButton from "../components/UnsaveButton";
+import "./SavedRecipes.css";
 
 const SavedRecipes = ({ savedRecipes, saved, setSaved, setSavedRecipes, search, setSearch, searchRecipes }) => {
   return (
-    <>
+    <div className="card-container">
       <NavbarHeader search={search}
         setSearch={setSearch}
-        searchRecipes={searchRecipes}/>
+        searchRecipes={searchRecipes} />
       <Header />
       <h1 style={{ padding: "50px", textAlign: "center" }}>Saved Recipes</h1>
       <MDBRow className="row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4">
@@ -83,7 +84,7 @@ const SavedRecipes = ({ savedRecipes, saved, setSaved, setSavedRecipes, search, 
           ))}
       </MDBRow>
       <Footer />
-    </>
+    </div>
   );
 };
 
