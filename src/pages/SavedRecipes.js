@@ -22,11 +22,11 @@ const SavedRecipes = ({ savedRecipes, saved, setSaved, setSavedRecipes, search, 
         searchRecipes={searchRecipes}/>
       <Header />
       <h1 style={{ padding: "50px", textAlign: "center" }}>Saved Recipes</h1>
-      <MDBRow className="row-cols-1 row-cols-md-5 g-4">
+      <MDBRow className="row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4">
         {savedRecipes &&
           savedRecipes.map((savedRecipe) => (
             <MDBCol key={savedRecipe.id}>
-              <MDBCard style={{ height: "550px" }}>
+              <MDBCard style={{ height: "600px" }}>
                 <MDBCardImage
                   style={{ height: "250px" }}
                   src={savedRecipe.image}
@@ -45,7 +45,7 @@ const SavedRecipes = ({ savedRecipes, saved, setSaved, setSavedRecipes, search, 
                     {savedRecipe.title}
                   </MDBCardTitle>
                   <p
-                    style={{ height: "100px" }}
+                    style={{ height: "130px" }}
                     dangerouslySetInnerHTML={{
                       __html: savedRecipe.summary.slice(0, 100) + "...",
                     }}
