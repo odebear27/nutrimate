@@ -35,8 +35,8 @@ function MyFeedPage({
   const indexOfLastRecipe = currentPage * recipesPerPage;
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
   const currentRecipes = myFeedRecipes.slice(
-                          indexOfFirstRecipe, 
-                          indexOfLastRecipe
+    indexOfFirstRecipe,
+    indexOfLastRecipe
   );
 
   const paginate = (e, value) => {
@@ -79,7 +79,7 @@ function MyFeedPage({
     <div>
       <NavbarHeader search={search}
         setSearch={setSearch}
-        searchRecipes={searchRecipes}/>
+        searchRecipes={searchRecipes} />
       <Header />
       <h1 style={{ padding: "50px", textAlign: "center" }}>My Feed</h1>
       {isLoading ? (
@@ -89,7 +89,7 @@ function MyFeedPage({
           </Spinner>
         </div>
       ) : (
-        <>
+        <div className="card-container">
           <MDBRow className="row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4">
             {myFeedRecipes &&
               myFeedRecipes.length > 0 &&
@@ -178,7 +178,7 @@ function MyFeedPage({
               />
             )}
           </Stack>
-        </>
+        </div>
       )}
       <Footer />
     </div>

@@ -52,7 +52,7 @@ export default function Footer() {
                   <MDBIcon color="secondary" icon="leaf" className="me-3" />
                   {<Link to="/about">NutriMate</Link>}
                 </h6>
-                <p>
+                <p style={{ textAlign: "justify" }}>
                   As passionate foodies, we aim to make cooking enjoyable and
                   accessible through our website's diverse, easy, and delicious
                   recipes, curated by our experienced team for cooks of all
