@@ -2,7 +2,7 @@
   border: 1px solid #bdbdbd;
   border-top-right-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
-  
+
 }
 
 
@@ -21,13 +21,21 @@
   transition: 0.3s all ease-in-out;
 }
 
-.navbar-header-custom a, .footer-custom a {
+.navbar-header-custom a,
+.offcanvas-body a,
+.footer-custom a {
   text-decoration: none;
   color: #0000008C;
 }
 
-.navbar-header-custom a:hover, .footer-custom a:hover {
+.navbar-header-custom a:hover,
+.offcanvas-body a:hover,
+.footer-custom a:hover {
   color: orange;
+}
+
+.offcanvas-title {
+  color: #0000008C;
 }
 
 .footer-custom .mdb-icon {
@@ -42,3 +50,39 @@
   margin: 0 100px;
 }
 
+.custom-toggler {
+  display: inline-block;
+  width: 30px;
+  height: 20px;
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.custom-toggler::before,
+.custom-toggler::after,
+.custom-toggler span {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 2px;
+  background-color: #000;
+  width: 100%;
+  transition: all 0.3s;
+}
+
+.custom-toggler::before {
+  top: 0;
+  transform: translateY(-50%);
+}
+
+.custom-toggler::after {
+  bottom: 0;
+  transform: translateY(50%);
+}
+
+.custom-toggler span {
+  top: 50%;
+  transform: translateY(-50%);
+}

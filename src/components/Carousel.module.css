@@ -59,7 +59,7 @@
     color: #206ebd
 }
 
-.Container {
+/* .Container {
     position: relative;
     display: flex;
     vertical-align: middle;
@@ -72,7 +72,40 @@
     padding: 40px;
     margin-left: 22%;
 
-}
+} */
+
+.Container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3px;
+    padding: 40px;
+    width: 100%;
+    margin: auto;
+  }
+  
+  
+    /* Small-sized screens */
+    @media screen and (max-width: 767px) {
+    .Container {
+      max-width: calc(5 * (150px + 3px));
+    }
+  }
+
+  /* Medium-sized screens */
+  @media screen and (min-width: 768px) and (max-width: 1200px) {
+    .Container {
+      max-width: calc(5 * (150px + 3px));
+    }
+  }
+  
+  /* Large-sized screens */
+  @media screen and (min-width: 1200px) {
+    .Container {
+      max-width: calc(10 * (200px + 3px));
+    }
+  }
+  
 
 .recipe {
     margin-top: 100px;

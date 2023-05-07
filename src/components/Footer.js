@@ -47,7 +47,7 @@ export default function Footer() {
         <section className="">
           <MDBContainer className="text-center text-md-start mt-5">
             <MDBRow className="mt-3">
-              <MDBCol md="3" lg="4" xl="3" className="mx-auto mb-4">
+              <MDBCol md="4" lg="4" xl="3" className="mx-auto mb-4">
                 <h6 className="text-uppercase fw-bold mb-4">
                   <MDBIcon color="secondary" icon="leaf" className="me-3" />
                   {<Link to="/about">NutriMate</Link>}
@@ -60,14 +60,14 @@ export default function Footer() {
                 </p>
               </MDBCol>
 
-              <MDBCol md="2" lg="2" xl="2" className="mx-auto mb-3">
+              <MDBCol md="3" lg="2" xl="2" className="mx-auto mb-3">
                 <h6 className="text-uppercase fw-bold mb-4">Browse Recipes</h6>
                 <p>{<Link to="/">Search</Link>}</p>
                 <p>{<Link to="/savedrecipes">Saved Recipes</Link>}</p>
                 <p>{<Link to="/myfeed">My Feed</Link>}</p>
               </MDBCol>
 
-              <MDBCol md="4" lg="3" xl="3" className="mx-auto mb-md-0 mb-3">
+              <MDBCol md="5" lg="4" xl="3" className="mx-auto mb-md-0 mb-3">
                 <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
                 <p>
                   <MDBIcon color="secondary" icon="home" className="me-2" />

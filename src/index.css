@@ -2,3 +2,10 @@ body {
   font-family: Roboto, Helvetica, Arial, sans-serif;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  zoom: 0.75;
+}

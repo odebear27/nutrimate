@@ -40,10 +40,10 @@ export default function RecipeCard({
      <Typography variant="h4" mb="46px">
         Showing Results 
       </Typography>
-      <MDBRow className="row-cols-1 row-cols-md-5 g-4">
+      <MDBRow className="row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4">
         {currentRecipes.map((result) => (
           <MDBCol key={result.id}>
-            <MDBCard style={{ height: "550px" }}>
+            <MDBCard style={{ height: "600px" }}>
               <MDBCardImage
                 style={{ height: "250px" }}
                 src={result.image}
@@ -62,7 +62,7 @@ export default function RecipeCard({
                   {result.title}
                 </MDBCardTitle>
                 {result.summary && <p
-                  style={{ height: "100px" }}
+                  style={{ height: "130px" }}
                   dangerouslySetInnerHTML={{
                     __html: result.summary.slice(0, 100) + "...",
                   }}

@@ -90,12 +90,12 @@ function MyFeedPage({
         </div>
       ) : (
         <>
-          <MDBRow className="row-cols-1 row-cols-md-5 g-4">
+          <MDBRow className="row-cols-1 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4">
             {myFeedRecipes &&
               myFeedRecipes.length > 0 &&
               currentRecipes.map((myFeedRecipe) => (
                 <MDBCol key={myFeedRecipe.id}>
-                  <MDBCard style={{ height: "550px" }}>
+                  <MDBCard style={{ height: "600px" }}>
                     <MDBCardImage
                       style={{ height: "250px" }}
                       src={myFeedRecipe.image}
@@ -114,7 +114,7 @@ function MyFeedPage({
                         {myFeedRecipe.title}
                       </MDBCardTitle>
                       <p
-                        style={{ height: "100px" }}
+                        style={{ height: "130px" }}
                         dangerouslySetInnerHTML={{
                           __html: myFeedRecipe.summary.slice(0, 100) + "...",
                         }}
