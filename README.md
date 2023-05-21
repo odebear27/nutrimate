@@ -1,11 +1,11 @@
-# This was a group project which I collaborated with 3 other developers for NTU SCTP Software Engineering.
+This was a group project which I collaborated with 3 other developers for NTU SCTP Software Engineering.
 
 ## How we worked on this project
 
 Our goal was to simulate a professional work environment.
 
-- We worked with tasks on a Kanban board: [ScreenRecord of tasks](media/jira.mp4)
-- We used feature branches and Pull Requests: [Example PR](media/pull_request.mp4)
+- We worked with tasks on a Kanban board: [ScreenRecord of tasks](https://drive.google.com/file/d/1msQlCsGaTrRJ9EYak9b27cK5DP8gFaxV/view?usp=share_link)
+- We used feature branches and Pull Requests: [Example PR](https://drive.google.com/file/d/1OSWOYE9Ixy8lMH09oJlGww0KBnNHqzLt/view?usp=share_link)
 
 ## How to navigate this project
 
