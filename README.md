@@ -1,3 +1,29 @@
+# This was a group project which I collaborated with 3 other developers for NTU SCTP Software Engineering.
+
+## How we worked on this project
+
+Our goal was to simulate a professional work environment.
+
+- We worked with tasks on a Kanban board: [ScreenRecord of tasks](media/jira.mp4)
+- We used feature branches and Pull Requests: [Example PR](media/pull_request.mp4)
+
+## How to navigate this project
+
+- Use of useEffect and useState: [Example code](src/pages/MyFeedPage.js)
+- Use of custom CSS: [Example code](src/App.css)
+- The application fetches data from Spoonacular API: Example for the [request](src/App.js)
+- Responsive CSS: [Example code](src/components/Carousel.module.css)
+- Use of Routes: [Example code](src/App.js)
+- Pagination: [Example code](src/components/RecipeCard.js)
+
+## Why was the project built this way
+
+- The design of the web application was mainly from css libraries such as MDB react and Bootstrap as this project timeline was 1.5 weeks only. We wanted something that was already there for us to use.
+
+## If I had more time I would change this
+
+- Refactor the code to use useContext as there is too much of props drilling involved in each component [here](src/App.js)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
