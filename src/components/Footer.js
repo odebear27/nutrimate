@@ -9,7 +9,6 @@ import {
 import { Link } from "react-router-dom";
 import EmailSubscription from "./EmailSubscription";
 
-
 export default function Footer() {
   return (
     <div className="footer-custom">
@@ -23,31 +22,55 @@ export default function Footer() {
           </div>
 
           <div>
-            <a href="https://www.facebook.com/" className="me-4 text-reset" target="_blank">
+            <a
+              href="https://www.facebook.com/"
+              className="me-4 text-reset"
+              target="_blank"
+            >
               <MDBIcon fab icon="facebook-f" className="mdb-icon" />
             </a>
-            <a href="https://twitter.com/" className="me-4 text-reset" target="_blank">
+            <a
+              href="https://twitter.com/"
+              className="me-4 text-reset"
+              target="_blank"
+            >
               <MDBIcon fab icon="twitter" className="mdb-icon" />
             </a>
-            <a href="https://www.google.com/" className="me-4 text-reset" target="_blank">
+            <a
+              href="https://www.google.com/"
+              className="me-4 text-reset"
+              target="_blank"
+            >
               <MDBIcon fab icon="google" className="mdb-icon" />
             </a>
-            <a href="https://www.instagram.com/" className="me-4 text-reset" target="_blank">
+            <a
+              href="https://www.instagram.com/"
+              className="me-4 text-reset"
+              target="_blank"
+            >
               <MDBIcon fab icon="instagram" className="mdb-icon" />
             </a>
-            <a href="https://sg.linkedin.com/" className="me-4 text-reset" target="_blank">
+            <a
+              href="https://sg.linkedin.com/"
+              className="me-4 text-reset"
+              target="_blank"
+            >
               <MDBIcon fab icon="linkedin" className="mdb-icon" />
             </a>
-            <a href="https://github.com/" className="me-4 text-reset" target="_blank">
+            <a
+              href="https://github.com/"
+              className="me-4 text-reset"
+              target="_blank"
+            >
               <MDBIcon fab icon="github" className="mdb-icon" />
             </a>
           </div>
         </section>
 
         <section className="">
-          <MDBContainer className="text-center text-md-start mt-5">
+          <MDBContainer className="text-center text-md-start mt-5" style={{ flexDirection: 'column' }}>
             <MDBRow className="mt-3">
-              <MDBCol md="4" lg="4" xl="3" className="mx-auto mb-4">
+              <MDBCol md="4" lg="3" xl="4" className="mx-auto mb-4">
                 <h6 className="text-uppercase fw-bold mb-4">
                   <MDBIcon color="secondary" icon="leaf" className="me-3" />
                   {<Link to="/about">NutriMate</Link>}
@@ -60,7 +83,7 @@ export default function Footer() {
                 </p>
               </MDBCol>
 
-              <MDBCol md="3" lg="2" xl="2" className="mx-auto mb-3">
+              <MDBCol md="4" lg="4" xl="3" className="mx-auto mb-3">
                 <h6 className="text-uppercase fw-bold mb-4">Browse Recipes</h6>
                 <p>{<Link to="/">Search</Link>}</p>
                 <p>{<Link to="/savedrecipes">Saved Recipes</Link>}</p>
@@ -83,8 +106,8 @@ export default function Footer() {
                 </p>
               </MDBCol>
             </MDBRow>
-            <MDBRow>
-              <EmailSubscription />
+            <MDBRow style={{marginTop: '50px'}}>
+                <EmailSubscription />
             </MDBRow>
           </MDBContainer>
         </section>

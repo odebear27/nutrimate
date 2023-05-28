@@ -14,6 +14,7 @@ Our goal was to simulate a professional work environment.
 - The application fetches data from Spoonacular API: Example for the [request](src/App.js)
 - Responsive CSS: [Example code](src/components/Carousel.module.css)
 - Use of Routes: [Example code](src/App.js)
+- Use of firestore as database: [Example code](src/pages/RegisterPage.js)
 - Pagination: [Example code](src/components/RecipeCard.js)
 
 ### Why was the project built this way
@@ -35,4 +36,6 @@ npm install @mui/material @emotion/react @emotion/styled
 npm install @mui/icons-material  
 npm install axios  
 npm i react-share  
-npm install @material-ui/core
+npm install @material-ui/core  
+npm install firebase  
+npm install firebase@9.22.0 --save
