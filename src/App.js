@@ -13,6 +13,8 @@ import Recipe from "./pages/Recipe";
 import axios from "axios";
 import AboutPage from "./pages/AboutPage";
 import Cuisines from "./components/Cuisines";
+import SignInPage from "./pages/SignInPage";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -141,6 +143,14 @@ function App() {
               setIsChanged={setIsChanged}
             />
           }
+        />
+        <Route 
+          path="/signin"
+          element={<SignInPage />}
+        />
+        <Route 
+          path="/register"
+          element={<RegisterPage />}
         />
         <Route path="*" element={<h1>404: Page Not Found</h1>} />
         <Route

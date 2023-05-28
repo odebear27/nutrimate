@@ -48,6 +48,8 @@ function NavbarHeader({search, setSearch, searchRecipes}) {
                         </NavDropdown.Item>
                       </NavDropdown>
                       <Nav.Link>{<Link to="/about">About Us</Link>}</Nav.Link>
+                      <Nav.Link>{<Link to="/signin">Sign In</Link>}</Nav.Link>
+                      <Nav.Link>{<Link to="/register">Register</Link>}</Nav.Link>
                     </Nav>
                     <Form className="d-flex">
                       <Form.Control

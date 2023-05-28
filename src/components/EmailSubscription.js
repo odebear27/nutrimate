@@ -20,8 +20,6 @@ function EmailSubscription() {
   };
 
   return (
-    <footer className="bg-light text-center">
-      <div className="container p-4 pb-0">
         <section className="">
           <form action="">
             <div className="row d-flex justify-content-center">
@@ -64,8 +62,6 @@ function EmailSubscription() {
             </div>
           </form>
         </section>
-      </div>
-    </footer>
   );
 }
 
