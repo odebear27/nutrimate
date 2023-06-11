@@ -1,4 +1,8 @@
-This was a group project which I collaborated with 3 other developers for NTU SCTP Software Engineering.
+### Project Overview
+
+This repository contains an advanced version of a project originally developed as part of a collaborative effort for the SCTP Software Engineering course at NTU School of Computer Science and Engineering. I am working on it individually at the moment.
+
+Originally designed and implemented as a group project by a team of four developers, this version includes my individual contributions and improvements made post-project phase. These updates showcase my ability to optimize, expand, and manage full-stack development projects, taking them from their initial phase to mature, deployable applications.
 
 ### How we worked on this project
 
@@ -10,6 +14,7 @@ Our goal was to simulate a professional work environment.
 ### How to navigate this project
 
 - Use of useEffect and useState: [Example code](src/pages/MyFeedPage.js)
+- Use of useContext defined in [AuthContext.js](src/context/AuthContext.js) which is used to provide state in [App.js](App.js) and consumed in [SignInPage.js](src/pages/SignInPage.js) and [Navbar.js](src/components/Navbar.js)
 - Use of custom CSS: [Example code](src/App.css)
 - The application fetches data from Spoonacular API: Example for the [request](src/App.js)
 - Responsive CSS: [Example code](src/components/Carousel.module.css)
@@ -21,7 +26,7 @@ Our goal was to simulate a professional work environment.
 
 - The design of the web application was mainly from css libraries such as MDB react and Bootstrap as this project timeline was 1.5 weeks only. We wanted something that was already there for us to use.
 
-### If I had more time I would change this
+### If I had more time during the project phase I would change this
 
 - Refactor the code to use useContext as there is too much of props drilling involved in each component [here](src/App.js)
 

@@ -11,8 +11,12 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/Firebase";
+import AuthContext from "../context/AuthContext";
+import { useContext } from "react";
 
-function SignInPage() {
+function SignInPage() {  
+  const authCtx = useContext(AuthContext);
+
   const navigate = useNavigate();
   const [signIn, setSignIn] = useState({
     email: "",
@@ -37,6 +41,10 @@ function SignInPage() {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        authCtx.setIsSignedIn(true);
+        console.log("Signed in button clicked; isSignedIn: ", authCtx.isSignedIn);
+        console.log(user);
+        authCtx.setEmail(user.email);
         navigate("/");
       })
       .catch((error) => {
