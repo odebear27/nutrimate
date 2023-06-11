@@ -13,11 +13,10 @@ import NavbarHeader from "../components/Navbar";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import UnsaveButton from "../components/UnsaveButton";
-// import "./SavedRecipes.css";
 
 const SavedRecipes = ({ savedRecipes, saved, setSaved, setSavedRecipes, search, setSearch, searchRecipes }) => {
   return (
-    <div className="card-container">
+    <div>
       <NavbarHeader search={search}
         setSearch={setSearch}
         searchRecipes={searchRecipes} />

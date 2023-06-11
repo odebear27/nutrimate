@@ -15,6 +15,7 @@ import AboutPage from "./pages/AboutPage";
 import Cuisines from "./components/Cuisines";
 import SignInPage from "./pages/SignInPage";
 import RegisterPage from "./pages/RegisterPage";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -66,7 +67,9 @@ function App() {
   };
 
   return (
+    
     <Router>
+      <AuthProvider>
       <Routes>
         <Route
           path="/"
@@ -164,7 +167,9 @@ function App() {
           }
         />
       </Routes>
+      </AuthProvider>
     </Router>
+   
   );
 }
 
