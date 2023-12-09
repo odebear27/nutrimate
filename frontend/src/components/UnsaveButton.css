@@ -1,0 +1,11 @@
+.unsave-button {
+    display: inline-block;
+}
+
+.unsave-button:hover .unsave-icon {
+    transform: scale(1.2);
+}
+
+.unsave-icon {
+    transition: transform 0.3s ease;
+}
