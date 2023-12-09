@@ -13,14 +13,14 @@ Our goal was to simulate a professional work environment.
 
 ### How to navigate this project
 
-- Use of useEffect and useState: [Example code](src/pages/MyFeedPage.js)
-- Use of useContext defined in [AuthContext.js](src/context/AuthContext.js) which is used to provide state in [App.js](App.js) and consumed in [SignInPage.js](src/pages/SignInPage.js) and [Navbar.js](src/components/Navbar.js)
-- Use of custom CSS: [Example code](src/App.css)
-- The application fetches data from Spoonacular API: Example for the [request](src/App.js)
-- Responsive CSS: [Example code](src/components/Carousel.module.css)
-- Use of Routes: [Example code](src/App.js)
-- Use of firestore as database: [Example code](src/pages/RegisterPage.js)
-- Pagination: [Example code](src/components/RecipeCard.js)
+- Use of useEffect and useState: [Example code](frontend/src/pages/MyFeedPage.js)
+- Use of useContext defined in [AuthContext.js](frontend/src/context/AuthContext.js) which is used to provide state in [App.js](App.js) and consumed in [SignInPage.js](frontend/src/pages/SignInPage.js) and [Navbar.js](frontend/src/components/Navbar.js)
+- Use of custom CSS: [Example code](frontend/src/App.css)
+- The application fetches data from Spoonacular API: Example for the [request](frontend/src/App.js)
+- Responsive CSS: [Example code](frontend/src/components/Carousel.module.css)
+- Use of Routes: [Example code](frontend/src/App.js)
+- Use of firestore as database: [Example code](frontend/src/pages/RegisterPage.js)
+- Pagination: [Example code](frontend/src/components/RecipeCard.js)
 
 ### Why was the project built this way
 
@@ -28,7 +28,7 @@ Our goal was to simulate a professional work environment.
 
 ### If I had more time during the project phase I would change this
 
-- Refactor the code to use useContext as there is too much of props drilling involved in each component [here](src/App.js)
+- Refactor the code to use useContext as there is too much of props drilling involved in each component [here](frontend/src/App.js)
 
 #### Additional libraries to install:
 
