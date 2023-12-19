@@ -32,7 +32,7 @@ This project is split into 3 parts:
 - Use of firestore as database: [Example code](frontend/src/pages/RegisterPage.js)
 - Pagination: [Example code](frontend/src/components/RecipeCard.js)
 
-[Screen Recording of Web Application](https://drive.google.com/file/d/1dWSieaCiTPpe7BpC_SlZA3W1f1JorxXJ/view?usp=sharing)
+<a href="https://drive.google.com/file/d/1dWSieaCiTPpe7BpC_SlZA3W1f1JorxXJ/view?usp=sharing" target="_blank">Screen Recording of Web Application</a>
 
 ##### Backend
 
@@ -50,7 +50,7 @@ This project is split into 3 parts:
 - Use of Firebase Storage to store customer uploaded recipe images [Example code](mobile/screen/RecipesUpload.js)
 - Use of expo SDKs such as expo-camera, expo-image-picker and expo-file-system for user to upload recipe image [Example code](mobile/screen/RecipesUpload.js)
 
-[Screen Recording of Mobile Application](https://drive.google.com/file/d/16lE38EgHvbDoUZEY2h5zdbDMy_WaUXlT/view?usp=sharing)
+<a href="https://drive.google.com/file/d/16lE38EgHvbDoUZEY2h5zdbDMy_WaUXlT/view?usp=sharing" target="_blank">Screen Recording of Mobile Application</a>
 
 ### Why was the project built this way
 
