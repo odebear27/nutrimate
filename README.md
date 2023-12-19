@@ -39,6 +39,7 @@ This project is split into 3 parts:
 - Use of Java's framework SpringBoot
 - Use of annotations @RestController, @GetMapping, @PostMapping, @PutMapping and DeleteMapping: [Example code](backend/src/main/java/sg/edu/ntu/nutrimate/controller/RecipeController.java)
 - Use of inheritance (Principles of Object-Oriented programming): [Example code](backend/src/main/java/sg/edu/ntu/nutrimate/entity/CustomerRecipe.java)
+- Use of PostgreSQL (backend application only) / Use of H2 Database (mobile application)
 - Postman
 - Deployment to Heroku
 
