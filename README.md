@@ -4,6 +4,8 @@ This repository contains an advanced version of a project originally developed a
 
 Originally designed and implemented as a group project by a team of four developers, this version includes my individual contributions and improvements made post-project phase. These updates showcase my ability to optimize, expand, and manage full-stack development projects, taking them from their initial phase to mature, deployable applications.
 
+![Overview of Mobile App](mobile/assets/product/mobileAppSS.jpg)
+
 ### How we worked on this project
 
 Our goal was to simulate a professional work environment.
@@ -30,7 +32,7 @@ This project is split into 3 parts:
 - Use of firestore as database: [Example code](frontend/src/pages/RegisterPage.js)
 - Pagination: [Example code](frontend/src/components/RecipeCard.js)
 
-###### Screen Recording of Web Application
+[Screen Recording of Web Application](https://drive.google.com/file/d/1dWSieaCiTPpe7BpC_SlZA3W1f1JorxXJ/view?usp=sharing)
 
 ##### Backend
 
@@ -45,11 +47,10 @@ This project is split into 3 parts:
 - Use of Figma for wireframe prototyping [here](mobile/assets/figma/figma%20wireframe.jpeg)
 - Use of React Native with Backend code
 - Use of Axios to fetch recipe image and recipe title for recipeList screen [Example code](mobile/screen/RecipeList.js) and recipe details for recipeDetails screen [Example code](mobile/screen/RecipeDetails.js)
-
 - Use of Firebase Storage to store customer uploaded recipe images [Example code](mobile/screen/RecipesUpload.js)
 - Use of expo SDKs such as expo-camera, expo-image-picker and expo-file-system for user to upload recipe image [Example code](mobile/screen/RecipesUpload.js)
 
-###### Screen Recording of Web Application
+[Screen Recording of Mobile Application](https://drive.google.com/file/d/16lE38EgHvbDoUZEY2h5zdbDMy_WaUXlT/view?usp=sharing)
 
 ### Why was the project built this way
 
@@ -76,11 +77,11 @@ npm install firebase@9.22.0 --save
 
 #### Additional libraries to install for Mobile App:
 
-npm install @react-navigation/native
-npx expo install react-native-screens react-native-safe-area-context
-npm install @react-navigation/native-stack
-npm install --save-prod react-native-render-html
-npx expo install expo-local-authentication
-npx expo install expo-camera
-npx expo install firebase
+npm install @react-navigation/native  
+npx expo install react-native-screens react-native-safe-area-context  
+npm install @react-navigation/native-stack  
+npm install --save-prod react-native-render-html  
+npx expo install expo-local-authentication  
+npx expo install expo-camera  
+npx expo install firebase  
 npm install expo-image-loader
